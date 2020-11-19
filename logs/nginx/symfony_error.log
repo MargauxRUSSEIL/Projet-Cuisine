@@ -1,0 +1,1 @@
+2020/11/19 13:13:51 [error] 6#6: *1 upstream timed out (110: Operation timed out) while reading response header from upstream, client: 172.31.0.1, server: symfony.localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.31.0.2:9001", host: "symfony.localhost"
