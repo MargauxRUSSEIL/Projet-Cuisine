@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer recette {{ create_recette.TitreRecette }}{% endblock %}
+
+{% block body %}
+    <h1>Editer recette {{ create_recette.TitreRecette }}</h1>
+
+    {{ include('create_recette/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('create_recette_index') }}">Retour au recette</a>
+
+    {{ include('create_recette/_delete_form.html.twig') }}
+{% endblock %}

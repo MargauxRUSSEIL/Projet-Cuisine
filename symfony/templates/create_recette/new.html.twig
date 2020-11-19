@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Recette{% endblock %}
+
+{% block body %}
+    <h1>Créer une Nouvelle Recette</h1>
+
+    {{ include('create_recette/_form.html.twig') }}
+
+    <a href="{{ path('create_recette_index') }}">Retour au recette</a>
+{% endblock %}

@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('create_recette_delete', {'id': create_recette.id}) }}" 
+onsubmit="return confirm('Etes-vous sur de vouloir supprimer cette recette ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ create_recette.id) }}">
+    <button class="btn">Supprimer</button>
+</form>

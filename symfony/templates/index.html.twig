@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cook{% endblock %}
+
+{% block body %}
+    <h1>Cook index</h1>
+
+    <a href="{{ path('create_recette_index') }}">Mes recettes</a>
+
+    
+    <a href="{{ path('create_recette_new') }}">Crée une recette</a>
+{% endblock %}
