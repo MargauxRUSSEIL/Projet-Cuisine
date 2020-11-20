@@ -73,6 +73,11 @@ class CreateRecette
      */
     private $createdAt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $photoFilename;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -206,6 +211,18 @@ class CreateRecette
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getPhotoFilename(): ?string
+    {
+        return $this->photoFilename;
+    }
+
+    public function setPhotoFilename(string $photoFilename): self
+    {
+        $this->photoFilename = $photoFilename;
 
         return $this;
     }

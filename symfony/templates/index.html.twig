@@ -5,6 +5,7 @@
 {% block body %}
     <h1>Nouveautés</h1>
 
+    <div></div>
 
     <h1>Cook index</h1>
 
@@ -17,7 +18,9 @@
     
     <a href="{{ path('app_register') }}">Crée un compte</a>
 
+    {% if app.user %}
     <a href="{{ path('user_show', { 'id': app.user.id }) }}">Mon compte</a>
+    {% endif %}
 
 
 {% endblock %}
