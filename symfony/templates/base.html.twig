@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{# base.html.twig #}
+{# appel du fichier css situé dans public/build #}
+ {% block stylesheets %}
+       {{ encore_entry_link_tags('app') }}
+ {% endblock %}
+
+
+{# appel du fichier js situé dans public/build #}
+{% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+{% endblock javascripts%}
