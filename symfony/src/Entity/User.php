@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -65,6 +67,16 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CreateRecette::class, mappedBy="user")
+     */
+    private $createRecettes;
+
+    public function __construct()
+    {
+        $this->createRecettes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -207,6 +219,36 @@ class User implements UserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CreateRecette[]
+     */
+    public function getCreateRecettes(): Collection
+    {
+        return $this->createRecettes;
+    }
+
+    public function addCreateRecette(CreateRecette $createRecette): self
+    {
+        if (!$this->createRecettes->contains($createRecette)) {
+            $this->createRecettes[] = $createRecette;
+            $createRecette->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCreateRecette(CreateRecette $createRecette): self
+    {
+        if ($this->createRecettes->removeElement($createRecette)) {
+            // set the owning side to null (unless already changed)
+            if ($createRecette->getUser() === $this) {
+                $createRecette->setUser(null);
+            }
+        }
 
         return $this;
     }

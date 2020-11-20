@@ -30,6 +30,10 @@
             <tr>
                 <th>Difficulté de la recette : </th>
                 <td>{{ create_recette.Difficulte }}</td>
+            </tr>
+            <tr>
+                <th>Photo : </th>
+                <td><a href="{{ asset('uploads/photos/' ~ create_recette.photoFilename) }}"><img src="{{ asset('uploads/photos/' ~ create_recette.photoFilename) }}" width="50px" height="auto"></a></td>
             </tr>    
      
         </tbody>
