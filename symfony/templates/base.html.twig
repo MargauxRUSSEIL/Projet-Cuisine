@@ -4,6 +4,12 @@
        {{ encore_entry_link_tags('app') }}
  {% endblock %}
 
+<body>
+
+    {# inlude menu #}
+    {% include 'home/nav.html.twig' %}
+
+</body>
 
 {# appel du fichier js situé dans public/build #}
 {% block javascripts %}
