@@ -6,6 +6,7 @@ use App\Entity\CreateRecette;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
 
 class CreateRecetteType extends AbstractType
@@ -27,6 +28,11 @@ class CreateRecetteType extends AbstractType
             ->add('recette')
             ->add('TempsCuisson')
             ->add('TempsPreparation')
+            ->add('createdAt', DateType::class,
+            [
+                'years' => range(1980, 2022),
+                'format' => 'ddMMMMyyyy'
+            ])
         ;
     }
 
