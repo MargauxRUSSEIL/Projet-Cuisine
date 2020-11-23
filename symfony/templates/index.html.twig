@@ -20,6 +20,8 @@
 
     {% if app.user %}
     <a href="{{ path('user_show', { 'id': app.user.id }) }}">Mon compte</a>
+    {% else %}
+    <a href="{{ path('app_login') }}">Login</a>
     {% endif %}
 
 
