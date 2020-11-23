@@ -15,7 +15,6 @@ body {
 
 #nav {
 
-    color: white;
     border: 0;
     outline: 0;
     background: none;
@@ -26,13 +25,99 @@ body {
 
 #head {
 
-    background: #181015 url('https://images.unsplash.com/photo-1524010464459-ebc38e4a3331?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2029&q=80') no-repeat;
+    background: #181015 url('../../assets/images/renovation-de-plan-de-travail-en-bois-massif-133.jpg') no-repeat;
     background-size: cover;
-     min-height:520px;
-     text-align: center;
-     padding-top:240px;
-     z-index: 1;
+    /*background-position: 0% 0%;*/
+    min-width: 100%;
+    min-height: 100%;
+    color: white;
+    /*padding-top:240px;*/
 
+}
 
+.Cyril {
+     position: absolute;
+     /* postulat de départ */
+     top: 50%;
+     left: 50%;
+     /* à 50%/50% du parent référent */
+     transform: translate(-50%, -50%);
+     text-shadow:black 1px 0 2px;
+}
+
+footer {
+
+    background-color: black;
+    position: relative;
+    bottom:0;
+    width: 100%;
+
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.scroll-down {
+    opacity: 1;
+    -webkit-transition: all .5s ease-in 3s;
+    transition: all .5s ease-in 3s;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -16px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #FFF;
+    background-size: 14px auto;
+    border-radius: 50%;
+    z-index: 2;
+    -webkit-animation: bounce 2s infinite 2s;
+    animation: bounce 2s infinite 2s;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+.scroll-down:before {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 6px);
+    transform: rotate(-45deg);
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    border: 2px solid white;
+    border-width: 0px 0 2px 2px;
+}
+
+@keyframes bounce {
+
+    0%,
+    100%,
+    20%,
+    50%,
+    80% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    60% {
+        -webkit-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
 }
 
