@@ -22,23 +22,18 @@ $(function() {
   });
 });
 
-$( window ).on( "load", function() {
-    mainNav();
-    $(window).on('scroll', function() {
-        mainNav();
-    });
-    function mainNav() {
-        var top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-        if (top > 40) $('.navbar-fixed-top').stop().animate({
-            "opacity": '1',
-            "top": '0'
-        });
-        else $('.navbar-fixed-top').stop().animate({
-            "top": '-70',
-            "opacity": '0'
-        });
+const nav = document.getElementById('Test45')
 
+// J'en fait une fonction pour pouvoir l'appeler au chargement de la page car
+// le scoll n'est pas forcément en haut au chargement.
+function onWindowScroll(event) {
+	if (window.pageYOffset < 30) {
+  	nav.classList.remove('scrolled')
+  } else {
+  	nav.classList.add('scrolled')
   }
-  });
+}
+
+window.addEventListener('scroll', onWindowScroll)
 
 console.log('Hello Webpack Encore! Edit me in assets/app.js');

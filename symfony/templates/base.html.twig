@@ -1,23 +1,20 @@
 {# base.html.twig #}
-{# appel du fichier css situé dans public/build #}
- {% block stylesheets %}
-       {{ encore_entry_link_tags('app') }}
- {% endblock %}
 
-<body>
-
-    {# inlude menu #}
-    {% include 'home/nav.html.twig' %}
-
-    {# inlude home #}
-    {% include 'home/home.html.twig' %}
-
-    {# inlude footer #}
-    {% include 'home/footer.html.twig' %}
-
-</body>
-
-{# appel du fichier js situé dans public/build #}
-{% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-{% endblock javascripts%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# appel du fichier css situé dans public/build #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {# appel du fichier js situé dans public/build #}
+        {% block javascripts %}
+                {{ encore_entry_script_tags('app') }}
+        {% endblock javascripts%}
+    </body>
+</html>
