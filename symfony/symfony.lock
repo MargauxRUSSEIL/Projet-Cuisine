@@ -99,6 +99,9 @@
     "ocramius/proxy-manager": {
         "version": "2.2.3"
     },
+    "php": {
+        "version": "7.3.12"
+    },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
     },
