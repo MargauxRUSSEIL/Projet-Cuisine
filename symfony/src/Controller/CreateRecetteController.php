@@ -5,6 +5,9 @@ namespace App\Controller;
 use App\Entity\CreateRecette;
 use App\Form\CreateRecetteType;
 use App\Repository\CreateRecetteRepository;
+use App\Entity\Rating;
+use App\Form\RatingType;
+use App\Repository\RatingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,12 +72,28 @@ class CreateRecetteController extends AbstractController
     }
 
     /**
-     * @Route("/recette/{id}", name="create_recette_show", methods={"GET"})
+     * @Route("/recette/{id}", name="create_recette_show", methods={"GET", "POST"})
      */
-    public function show(CreateRecette $create_recette): Response
+    public function show(Request $request,CreateRecette $create_recette): Response
     {
+        $rating = new Rating();
+        $formRating = $this->createForm(RatingType::class, $rating);
+        $formRating->handleRequest($request);
+
+        if ($formRating->isSubmitted() && $formRating->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($rating);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('create_recette_index');
+        }
+
+        
+
         return $this->render('create_recette/show.html.twig', [
             'create_recette' => $create_recette,
+            'rating' => $rating,
+            'form' => $formRating->createView(),
         ]);
     }
 

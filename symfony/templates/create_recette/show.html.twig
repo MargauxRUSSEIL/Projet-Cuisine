@@ -34,6 +34,24 @@
             <tr>
                 <th>Photo : </th>
                 <td><a href="{{ asset('uploads/photos/' ~ create_recette.photoFilename) }}"><img src="{{ asset('uploads/photos/' ~ create_recette.photoFilename) }}" width="50px" height="auto"></a></td>
+            </tr>
+            <tr>
+                <th>Note : </th>
+                <td>
+                {% set size = create_recette.ratings | length %}
+                {% if size > 0 %}
+                    {% set somme = 0.0 %}
+                    {% set compteur = 0 %}
+                    {% for ratings in create_recette.ratings %}
+                        {% set somme = somme + ratings.note %}
+                        {% set compteur = compteur + 1 %}
+                    {% endfor %} 
+                    {{ somme / compteur }}
+                {% else %}
+                    Il n'y a pas de notes.
+                {% endif %}</td>
+                <th>Votre note : </th>
+                <td>{{ include('rating/_form.html.twig') }}</td>
             </tr>    
      
         </tbody>
