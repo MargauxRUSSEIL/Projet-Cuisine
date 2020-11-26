@@ -42,6 +42,31 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+<<<<<<< Updated upstream
+=======
+            ->add('agreeTerms', CheckboxType::class, [
+                'mapped' => false,
+                'constraints' => [
+                    new IsTrue([
+                        'message' => 'You should agree to our terms.',
+                    ]),
+                ],
+            ])
+            ->add('firstname')
+            ->add('lastname')
+            ->add('birthdate', DateType::class,
+            [
+                'widget' => 'single_text',
+            ])
+            ->add('gender', ChoiceType::class, [
+                'choices' => [
+                    'Monsieur' => 'Monsieur',
+                    'Madame' => 'Madame',
+                    'Autre' => 'Autre'
+                ]
+            ])
+            ->add('email')
+>>>>>>> Stashed changes
         ;
     }
 

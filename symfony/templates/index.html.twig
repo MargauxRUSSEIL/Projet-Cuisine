@@ -3,6 +3,11 @@
 {% block title %}Cook{% endblock %}
 
 {% block body %}
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+    <h1>Recettes</h1>
+>>>>>>> Stashed changes
 
     {# inlude menu #}
     {% include 'home/nav.html.twig' %}
@@ -10,6 +15,34 @@
     {# inlude home #}
     {% include 'home/home.html.twig' %}
 
+<<<<<<< Updated upstream
+=======
+    <h1>Cook index</h1>
+
+    <a href="{{ path('create_recette_index') }}">Mes recettes</a>
+
+    
+    <a href="{{ path('create_recette_new') }}">Créer une recette</a>
+
+    <h1>User index</h1>
+    
+    <a href="{{ path('app_register') }}">Crée un compte</a>
+
+    {% if app.user %}
+    <a href="{{ path('user_show', { 'id': app.user.id }) }}">{{ app.user.username }}</a>
+    {% else %}
+    <a href="{{ path('app_login') }}">Login</a>
+    {% endif %}
+=======
+
+    {# inlude menu #}
+    {% include 'home/nav.html.twig' %}
+
+    {# inlude home #}
+    {% include 'home/home.html.twig' %}
+>>>>>>> Stashed changes
+
+>>>>>>> Stashed changes
     {# inlude footer #}
     {% include 'home/footer.html.twig' %}
 
