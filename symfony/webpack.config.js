@@ -70,8 +70,6 @@ Encore
     //.enableReactPreset()
     //.addEntry('admin', './assets/admin.js')
     .enableSassLoader()
-<<<<<<< Updated upstream
-=======
     .copyFiles({
      from: './assets/images',
 
@@ -84,7 +82,6 @@ Encore
       // only copy files matching this pattern
      //pattern: /\.(png|jpg|jpeg)$/
      })
->>>>>>> Stashed changes
 ;
 
 module.exports = Encore.getWebpackConfig();
