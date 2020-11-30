@@ -1,28 +1,67 @@
 <nav id="navBar" class="uk-navbar-container" uk-navbar>
 
-    <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="#">
-        <img src="{{ asset('build/Logo.png') }}" alt="" width="80" height="80">
-      </a>
-    </div>
+	<div class="uk-navbar-left">
+		<a class="uk-navbar-item uk-logo" href="{{ path('index') }}">
+			<img  class="uk-margin-small-top uk-margin-small-bottom" src="{{ asset('build/Logo.png') }}" alt="" width="80" height="80">
+		</a>
+		<div class="uk-navbar-item">
+			<form class="uk-search uk-search-navbar">
+				<a href="" style="color:rgb(156, 156, 156); z-index:6; margin-left: 10px; margin-right: 10px;" uk-search-icon></a>
+				<input id="Folow" class="uk-search-input uk-border-pill text-dark" type="search" placeholder="&nbsp;&nbsp;Rechercher une recette">
+			</form>
+		</div>
+	</div>
 
-    <div class="uk-navbar-right">
+	<div class="uk-navbar-right">
 
-        <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">Active</a></li>
-            <li>
-                <a href="#">Parent</a>
-                <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="#">Active</a></li>
-                        <li><a href="#">Item</a></li>
-                        <li><a href="#">Item</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="#">Item</a></li>
-        </ul>
+		<ul class="uk-navbar-nav">
+			<li>
+				<a href="#">
+					<img class="uk-margin-large-right uk-margin-small-top" src="{{asset('build/home_menu.png')}}" width="150">
+				</a>
+				<div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
+					<div class="uk-navbar-dropdown-grid uk-child-width-1-2" uk-grid>
+						<div>
+							<ul class="uk-nav uk-navbar-dropdown-nav">
+								<li class="uk-active uk-text-uppercase uk-text-bolder"><a href="#">Mon Compte</a></li>
+								<li><a href="#">
+									{% if app.user %}
+									<a href="{{ path('user_show', { 'id': app.user.id }) }}">{{ app.user.username }}</a>
+									{% else %}
+									<a href="{{ path('app_login') }}" uk-icon="icon: user">Login</a>
+									{% endif %}
+								</a></li>
+								<li class="uk-nav-header uk-text-uppercase uk-text-bolder">Recettes</li>
+								<li><a href="#">Nouveauté</a></li>
+								<li><a href="#">Coup de coeur</a></li>
+								<li><a href="#">Entrées</a></li>
+								<li><a href="#">Plats</a></li>
+								<li><a href="#">Déserts</a></li>
+								<li><a href="#">Végétarien</a></li>
+								<li class="uk-nav-divider mr-5 uk-margin-top"></li>
+								<li><a class="uk-text-bolder" href="#">Déconnexion&nbsp;<span uk-icon="icon: sign-out"></span></a></li>
+							</ul>
+						</div>
+						<div class="uk-cover-container uk-margin-remove">
+							<ul class="uk-nav uk-navbar-dropdown-nav">
+								<img src="{{asset('build/assiette.jpg')}}" uk-cover>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="mt-3 mr-3">
+				{% if app.user %}
+				<a class="pb-3" href="{{ path('user_show', { 'id': app.user.id }) }}">Bienvenue {{ app.user.username }}
+					<img style="vertical-align: middle;" class="mb-1 ml-1" src="https://img.icons8.com/offices/30/000000/cook-male.png"/>
+				</a>
 
-    </div>
+				{% else %}
+				<a class="pb-3" href="{{ path('app_login') }}" uk-icon="icon: user">Connexion&nbsp;&nbsp;</a>
+				{% endif %}
+			</li>
+		</ul>
+
+	</div>
 
 </nav>

@@ -3,7 +3,7 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <body class="registration">
+    <body class="uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-text-secondary" data-src="{{ asset('build/renovation.jpg') }}" uk-img>
    <!-- {% form_theme registrationForm 'bootstrap_4_layout.html.twig' %}-->
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
@@ -30,10 +30,7 @@
             {{ form_row(registrationForm.plainPassword, {
                 label: 'Password', label_attr: {class: 'mt-3'}
             }) }}
-        <div class="row">
-
-        </div>
-        {{ form_row(registrationForm.email, {label_attr: {class: 'mt-3'} }) }}
+            {{ form_row(registrationForm.email, {label_attr: {class: 'mt-3'} }) }}
         <div class="card-text bg-white mt-5">
             <div class="row">
             <div class="col">
