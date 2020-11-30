@@ -26,6 +26,7 @@ class RatingType extends AbstractType
                     '5' => '5.0'
                 ]
             ])
+            ->add('commentaire')
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'username'

@@ -57,6 +57,34 @@
         </tbody>
     </table>
 
+    <br/>
+    <h1>Commentaires</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Note</th>
+                <th>Commentaire</th>
+            </tr>
+        </thead>
+        <tbody>
+ 
+            <tr>
+            {% for ratings in create_recette.ratings %}
+                <td>{{ ratings.user.username }}</td>
+                <td>{{ ratings.note }}</td>
+                <td>{{ ratings.commentaire }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">Il n'y a pas de notes et/ou commentaires</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br/>
+
     <a href="{{ path('create_recette_index') }}">Retour a mes recettes</a>
     
     <a href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">edit</a>
