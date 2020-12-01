@@ -29,4 +29,3 @@ class IndexController extends AbstractController
         ]);
     }
 }
-

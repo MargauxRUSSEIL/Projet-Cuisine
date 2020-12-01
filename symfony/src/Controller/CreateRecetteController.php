@@ -29,7 +29,7 @@ class CreateRecetteController extends AbstractController
     }
 
 
-     /**
+    /**
      * @Route("/recette/new", name="create_recette_new", methods={"GET","POST"})
      */
 
@@ -45,7 +45,7 @@ class CreateRecetteController extends AbstractController
             if ($photoFile) {
                 $originalFilename = pathinfo($photoFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$photoFile->guessExtension();
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $photoFile->guessExtension();
                 try {
                     $photoFile->move(
                         $this->getParameter('photos_directory'),
@@ -74,7 +74,7 @@ class CreateRecetteController extends AbstractController
     /**
      * @Route("/recette/{id}", name="create_recette_show", methods={"GET", "POST"})
      */
-    public function show(Request $request,CreateRecette $create_recette): Response
+    public function show(Request $request, CreateRecette $create_recette): Response
     {
         $rating = new Rating();
         $formRating = $this->createForm(RatingType::class, $rating);
@@ -88,7 +88,7 @@ class CreateRecetteController extends AbstractController
             return $this->redirectToRoute('create_recette_index');
         }
 
-        
+
 
         return $this->render('create_recette/show.html.twig', [
             'create_recette' => $create_recette,
@@ -117,13 +117,13 @@ class CreateRecetteController extends AbstractController
         ]);
     }
 
-    
+
     /**
      * @Route("/recette/{id}", name="create_recette_delete", methods={"DELETE"})
      */
     public function delete(Request $request, CreateRecette $create_recette): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$create_recette->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $create_recette->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($create_recette);
             $entityManager->flush();

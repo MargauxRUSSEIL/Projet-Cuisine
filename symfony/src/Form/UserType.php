@@ -39,11 +39,13 @@ class UserType extends AbstractType
             ])
             ->add('firstname')
             ->add('lastname')
-            ->add('birthdate', DateType::class,
-            [
-                'years' => range(1980, 2020),
-                'format' => 'ddMMMMyyyy'
-            ])
+            ->add(
+                'birthdate',
+                DateType::class,
+                [
+                    'widget' => 'single_text'
+                ]
+            )
             ->add('gender', ChoiceType::class, [
                 'choices' => [
                     'Monsieur' => 'Monsieur',
@@ -51,8 +53,7 @@ class UserType extends AbstractType
                     'Autre' => 'Autre'
                 ]
             ])
-            ->add('email')
-        ;
+            ->add('email');
     }
 
     public function configureOptions(OptionsResolver $resolver)

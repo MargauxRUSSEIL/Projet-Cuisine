@@ -1,4 +1,26 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+        <div class="uk-width-1-1 uk-margin">
+            {{ form_row(form.gender, {label: 'Sexe'}) }}
+        </div>
+        <div class="uk-width-1-1 uk-margin">
+            {{ form_row(form.username, {class: 'uk-input'} ) }}
+        </div>
+        <div class="uk-width-1-1 uk-margin">
+            {{ form_row(form.firstname) }}
+        </div>
+        <div class="uk-width-1-1 uk-margin">
+            {{ form_row(form.lastname) }}
+        </div>
+        <div class="uk-width-1-1 uk-margin" >
+            {{ form_row(form.birthdate) }}
+        </div>
+        <div class="uk-width-1-1 uk-margin">
+            {{ form_row(form.password) }}
+        </div>
+        <div class="uk-width-1-1 uk-margin">
+            {{ form_row(form.email) }}
+        </div>
+    <button class="btn btn-info uk-margin">
+        <img class="mr-1" src="https://img.icons8.com/fluent/48/000000/save.png"  width="25"/>{{ button_label|default('sauvegarder') }}
+    </button>
 {{ form_end(form) }}

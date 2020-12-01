@@ -26,7 +26,7 @@
            <tr>
                 <th>Temps de cuisson : </th>
                 <td>{{ create_recette.TempsCuisson ? create_recette.TempsCuisson|date('H : i') : '' }} Heure(s)</td>
-            </tr>            
+            </tr>
             <tr>
                 <th>Difficulté de la recette : </th>
                 <td>{{ create_recette.Difficulte }}</td>
@@ -45,23 +45,51 @@
                     {% for ratings in create_recette.ratings %}
                         {% set somme = somme + ratings.note %}
                         {% set compteur = compteur + 1 %}
-                    {% endfor %} 
+                    {% endfor %}
                     {{ somme / compteur }}
                 {% else %}
                     Il n'y a pas de notes.
                 {% endif %}</td>
                 <th>Votre note : </th>
                 <td>{{ include('rating/_form.html.twig') }}</td>
-            </tr>    
-     
+            </tr>
+
         </tbody>
     </table>
 
+    <br/>
+    <h1>Commentaires</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Note</th>
+                <th>Commentaire</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+            {% for ratings in create_recette.ratings %}
+                <td>{{ ratings.user.username }}</td>
+                <td>{{ ratings.note }}</td>
+                <td>{{ ratings.commentaire }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">Il n'y a pas de notes et/ou commentaires</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br/>
+
     <a href="{{ path('create_recette_index') }}">Retour a mes recettes</a>
-    
+
     <a href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">edit</a>
 
     {{ include('create_recette/_delete_form.html.twig') }}
-    
- 
+
+
 {% endblock %}

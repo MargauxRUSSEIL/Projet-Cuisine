@@ -26,17 +26,20 @@ class CreateRecetteType extends AbstractType
                     'min' => 0,
                     'max' => 5
                 ]
-                ])
+            ])
             ->add('ingredients')
             ->add('instruments')
             ->add('recette')
             ->add('TempsCuisson')
             ->add('TempsPreparation')
-            ->add('createdAt', DateType::class,
-            [
-                'years' => range(1980, 2022),
-                'format' => 'ddMMMMyyyy'
-            ])
+            ->add(
+                'createdAt',
+                DateType::class,
+                [
+                    'years' => range(1980, 2022),
+                    'format' => 'ddMMMMyyyy'
+                ]
+            )
             ->add('photo', FileType::class, [
                 'label' => 'Photo (.png type)',
                 'mapped' => false,
@@ -55,8 +58,7 @@ class CreateRecetteType extends AbstractType
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'lastname'
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

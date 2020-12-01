@@ -14,15 +14,15 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class RatingRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
-    {
-        parent::__construct($registry, Rating::class);
-    }
+  public function __construct(ManagerRegistry $registry)
+  {
+    parent::__construct($registry, Rating::class);
+  }
 
-    // /**
-    //  * @return Rating[] Returns an array of Rating objects
-    //  */
-    /*
+  // /**
+  //  * @return Rating[] Returns an array of Rating objects
+  //  */
+  /*
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('r')
@@ -36,7 +36,7 @@ class RatingRepository extends ServiceEntityRepository
     }
     */
 
-    /*
+  /*
     public function findOneBySomeField($value): ?Rating
     {
         return $this->createQueryBuilder('r')
