@@ -32,10 +32,15 @@ class Rating
    */
   private $recette;
 
-  /**
-   * @ORM\Column(type="text", nullable=true)
-   */
-  private $commentaire;
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $commentaire;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
   public function getId(): ?int
   {
@@ -71,22 +76,18 @@ class Rating
     return $this->recette;
   }
 
-  public function setRecette(?CreateRecette $recette): self
-  {
-    $this->recette = $recette;
+        return $this;
+    }
 
-    return $this;
-  }
+    public function getCommentaire(): ?string
+    {
+        return $this->commentaire;
+    }
 
-  public function getCommentaire(): ?string
-  {
-    return $this->commentaire;
-  }
+    public function setCommentaire(?string $commentaire): self
+    {
+        $this->commentaire = $commentaire;
 
-  public function setCommentaire(?string $commentaire): self
-  {
-    $this->commentaire = $commentaire;
-
-    return $this;
-  }
+        return $this;
+    }
 }

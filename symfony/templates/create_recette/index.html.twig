@@ -30,12 +30,10 @@
                 <td class="uk-text-bold uk-text-capitalize">{{ create_recette.TitreRecette }}</td>
                 <td>{{ create_recette.Difficulte }}</td>
                 <td>
-                    <a class="btn btn-light btn-sm text-decoration-none" href="{{ path('create_recette_show', {'id': create_recette.id}) }}">
-                        <img src="https://img.icons8.com/color/48/000000/show-property.png" width="30"/>voir la recette
-                    </a>
-                    <a class="btn btn-light btn-sm text-decoration-none p-2" href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">
-                        <img class="mr-1" src="https://img.icons8.com/office/30/000000/edit-property.png" width="22"/>modifier
-                    </a>
+                    <a href="{{ path('create_recette_show', {'id': create_recette.id}) }}">show</a>
+                    {% if app.user and ('ROLE_ADMIN' in app.user.roles ? app.user.roles|json_encode : '' or app.user.username == create_recette.user.username) %}
+                        <a href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">edit</a>
+                    {% endif %}
 
 
                 </td>

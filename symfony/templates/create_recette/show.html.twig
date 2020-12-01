@@ -50,10 +50,12 @@
                 {% else %}
                     Il n'y a pas de notes.
                 {% endif %}</td>
+                {% if app.user %}
                 <th>Votre note : </th>
                 <td>{{ include('rating/_form.html.twig') }}</td>
-            </tr>
-
+                {% endif %}
+            </tr>    
+     
         </tbody>
     </table>
 
@@ -69,7 +71,7 @@
             </tr>
         </thead>
         <tbody>
-
+ 
             <tr>
             {% for ratings in create_recette.ratings %}
                 <td>{{ ratings.user.username }}</td>
@@ -86,10 +88,14 @@
     <br/>
 
     <a href="{{ path('create_recette_index') }}">Retour a mes recettes</a>
+    
+    
+    {% if app.user and ('ROLE_ADMIN' in app.user.roles ? app.user.roles|json_encode : '' or app.user.username == create_recette.user.username) %}
+        <a href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">edit</a>
+        {{ include('create_recette/_delete_form.html.twig') }}
+    {% endif %}
 
-    <a href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">edit</a>
-
-    {{ include('create_recette/_delete_form.html.twig') }}
-
-
+    
+    
+ 
 {% endblock %}
