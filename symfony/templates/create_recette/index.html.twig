@@ -21,7 +21,9 @@
                 <td>{{ create_recette.Difficulte }}</td>
                 <td>
                     <a href="{{ path('create_recette_show', {'id': create_recette.id}) }}">show</a>
-                    <a href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">edit</a>
+                    {% if app.user and ('ROLE_ADMIN' in app.user.roles ? app.user.roles|json_encode : '' or app.user.username == create_recette.user.username) %}
+                        <a href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">edit</a>
+                    {% endif %}
 
  
                 </td>
