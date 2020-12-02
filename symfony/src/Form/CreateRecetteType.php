@@ -36,8 +36,7 @@ class CreateRecetteType extends AbstractType
                 'createdAt',
                 DateType::class,
                 [
-                    'years' => range(1980, 2022),
-                    'format' => 'ddMMMMyyyy'
+                    'widget' => 'single_text'
                 ]
             )
             ->add('photo', FileType::class, [

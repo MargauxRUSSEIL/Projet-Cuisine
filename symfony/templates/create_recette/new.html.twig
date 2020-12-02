@@ -16,7 +16,9 @@
 
         {{ include('create_recette/_form.html.twig') }}
 
-        <a href="{{ path('create_recette_index') }}">Retour au recette</a>
+        <a class="btn btn-warning text-decoration-none" href="{{ path('create_recette_index') }}">
+            <img class="mr-1" src="https://img.icons8.com/fluent-systems-filled/24/000000/long-arrow-left.png"/>Retour au recette
+        </a>
     </div>
 
     {# inlude footer #}

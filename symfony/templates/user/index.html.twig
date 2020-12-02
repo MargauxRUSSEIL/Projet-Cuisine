@@ -37,17 +37,17 @@
                     <td>{{ user.id }}</td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                    <td>{{ user.password }}</td>
+                    <td class="uk-text-truncate uk-width-medium">{{ user.password }}</td>
                     <td>{{ user.firstname }}</td>
                     <td>{{ user.lastname }}</td>
                     <td>{{ user.birthdate ? user.birthdate|date('Y-m-d') : '' }}</td>
                     <td>{{ user.gender }}</td>
                     <td>{{ user.email }}</td>
                     <td class="text-center">
-                        <a class="btn btn-light border border-secondary btn-sm text-decoration-none uk-margin-small" href="{{ path('user_show', {'id': user.id}) }}" role="button">
+                        <a class="btn btn-outline-primary border border-primary btn-sm text-decoration-none uk-margin-small" href="{{ path('user_show', {'id': user.id}) }}" role="button">
                             <img src="https://img.icons8.com/color/48/000000/show-property.png" width="20"/>
                         </a>
-                        <a class="btn btn-light border border-secondary btn-sm text-decoration-none uk-margin-small" href="{{ path('user_edit', {'id': user.id}) }}" role="button">
+                        <a class="btn btn-outline-danger border border-danger btn-sm text-decoration-none" href="{{ path('user_edit', {'id': user.id}) }}" role="button">
                             <img src="https://img.icons8.com/cotton/64/000000/edit--v2.png" width="20"/>
                         </a>
                     </td>
