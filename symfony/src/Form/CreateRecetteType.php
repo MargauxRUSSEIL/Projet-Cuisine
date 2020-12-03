@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CreateRecetteType extends AbstractType
 {
@@ -25,6 +26,13 @@ class CreateRecetteType extends AbstractType
                 'attr' => [
                     'min' => 0,
                     'max' => 5
+                ]
+            ])
+            ->add('categorie', ChoiceType::class, [
+                'choices' => [
+                    'Entree' => 'Entree',
+                    'Plat' => 'Plat',
+                    'Dessert' => 'Dessert'
                 ]
             ])
             ->add('ingredients')
@@ -56,8 +64,9 @@ class CreateRecetteType extends AbstractType
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'lastname'
-            ]);
+                'choice_label' => 'username'
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

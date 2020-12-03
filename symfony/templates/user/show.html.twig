@@ -4,73 +4,114 @@
 
 {% block body %}
 
-    {# inlude menu #}
-    {% include 'home/navbar.html.twig' %}
+{# inlude menu #}
+{% include 'home/navbar.html.twig' %}
 
-    <div class="container uk-margin-large uk-margin-xlarge-bottom">
-        <h1 class="uk-margin-medium-bottom uk-text-uppercase uk-text-center">—&nbsp; Utilisateur
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-            width="64" height="64"
-            viewBox="0 0 172 172"
-            style=" fill:#000000; vertical-align: text-top;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M145.25938,135.31563l-37.75938,-38.56563l35.87813,-35.87813c9.40625,-9.40625 9.40625,-24.725 0,-34.26562l-53.61563,53.75l-2.41875,-3.35937l0.5375,-0.5375c3.09062,-3.09062 3.09062,-8.19687 0,-11.42187l-10.48125,-10.48125l-24.59063,24.85938l10.48125,10.48125c3.09063,3.09062 8.19688,3.09062 11.42188,0l1.075,-1.075l2.6875,2.55313l-43.26875,43.80625c-3.09062,3.09062 -3.09062,8.19687 0,11.42188c3.09063,3.225 8.19688,3.09062 11.42188,0l43.40313,-43.67188l11.15313,11.15313l32.65313,32.65312c3.09062,3.09062 8.19687,3.09062 11.42188,0c3.09062,-3.225 3.09062,-8.33125 0,-11.42187z" fill="#ffffff"></path><path d="M65.17188,70.68125c-1.075,0 -2.01562,-0.40313 -2.82187,-1.20938l-31.30937,-31.30937c-1.6125,-1.6125 -1.6125,-4.16563 0,-5.64375c1.6125,-1.6125 4.16563,-1.6125 5.64375,0l31.30938,31.30938c1.6125,1.6125 1.6125,4.16563 0,5.64375c-0.80625,0.80625 -1.74688,1.20938 -2.82188,1.20938zM69.06875,95.27188c3.62813,0 6.9875,-1.34375 9.54063,-3.89688c1.6125,-1.6125 1.6125,-4.16562 0,-5.64375c-1.6125,-1.6125 -4.16563,-1.6125 -5.64375,0c-2.01562,2.01563 -5.50938,2.01563 -7.65938,0l-40.98437,-40.85c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0c-1.6125,1.6125 -1.6125,4.16562 0,5.64375l40.85,40.85c2.55313,2.55313 5.9125,3.89688 9.54062,3.89688zM122.41563,106.82813c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0c-1.47813,1.6125 -1.6125,4.16562 0,5.64375l25.53125,25.53125c0.80625,0.80625 1.20937,1.74687 1.20937,2.82187c0,1.075 -0.40312,2.15 -1.20937,2.82188c-1.47813,1.47812 -4.16563,1.47812 -5.64375,0l-43.80625,-43.5375c-1.47812,-1.47812 -4.16562,-1.47812 -5.64375,0l-43.5375,43.5375c-1.47813,1.47813 -4.16563,1.47813 -5.64375,0c-0.80625,-0.80625 -1.20937,-1.74687 -1.20937,-2.82187c0,-1.075 0.40313,-2.15 1.20937,-2.82188l29.025,-29.15938c1.6125,-1.6125 1.6125,-4.16562 0,-5.64375c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0l-29.15937,29.025c-2.28438,2.28438 -3.49375,5.375 -3.49375,8.6c0,3.225 1.20937,6.31563 3.49375,8.6c2.28437,2.28438 5.375,3.49375 8.6,3.49375c3.225,0 6.31562,-1.20938 8.6,-3.49375l40.58125,-40.85l40.85,40.85c2.28438,2.28438 5.375,3.49375 8.6,3.49375c3.225,0 6.31563,-1.20938 8.6,-3.49375c2.28438,-2.28438 3.49375,-5.375 3.49375,-8.6c0,-3.225 -1.20938,-6.31563 -3.49375,-8.6zM84.25313,66.65c1.075,1.075 1.6125,2.41875 1.6125,3.7625c0,1.34375 -0.5375,2.82188 -1.6125,3.7625c-0.80625,0.80625 -1.20937,1.74687 -1.20937,2.82188c0,1.075 0.40313,2.15 1.20937,2.82187l20.29063,19.75312c0.80625,0.80625 1.88125,1.20938 2.82187,1.20938c0.94062,0 2.01563,-0.40313 2.82187,-1.20938l36.0125,-36.0125c11.01875,-11.01875 11.01875,-28.89062 0,-39.90937c-1.47813,-1.47813 -4.16563,-1.47813 -5.64375,0l-36.95312,37.22187c-1.6125,1.6125 -1.6125,4.16562 0,5.64375c1.6125,1.6125 4.16562,1.6125 5.64375,0l33.8625,-33.8625c5.10625,7.79375 4.3,18.54375 -2.55312,25.39688l-33.05625,33.19063l-15.05,-14.64688c0.94062,-1.88125 1.47812,-4.03125 1.47812,-6.18125c0,-3.62812 -1.34375,-6.9875 -3.89688,-9.54062l-40.98437,-40.71562c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0c-1.6125,1.6125 -1.6125,4.16563 0,5.64375z" fill="#000000"></path></g></g></svg>
-        —</h1>
+<div class="container uk-margin-large uk-margin-xlarge-bottom">
+  <h1 class="uk-margin-medium-bottom uk-text-uppercase uk-text-center">—&nbsp;Vos informations
+    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+    width="64" height="64"
+    viewBox="0 0 172 172"
+    style=" fill:#000000; vertical-align: text-top;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M145.25938,135.31563l-37.75938,-38.56563l35.87813,-35.87813c9.40625,-9.40625 9.40625,-24.725 0,-34.26562l-53.61563,53.75l-2.41875,-3.35937l0.5375,-0.5375c3.09062,-3.09062 3.09062,-8.19687 0,-11.42187l-10.48125,-10.48125l-24.59063,24.85938l10.48125,10.48125c3.09063,3.09062 8.19688,3.09062 11.42188,0l1.075,-1.075l2.6875,2.55313l-43.26875,43.80625c-3.09062,3.09062 -3.09062,8.19687 0,11.42188c3.09063,3.225 8.19688,3.09062 11.42188,0l43.40313,-43.67188l11.15313,11.15313l32.65313,32.65312c3.09062,3.09062 8.19687,3.09062 11.42188,0c3.09062,-3.225 3.09062,-8.33125 0,-11.42187z" fill="#ffffff"></path><path d="M65.17188,70.68125c-1.075,0 -2.01562,-0.40313 -2.82187,-1.20938l-31.30937,-31.30937c-1.6125,-1.6125 -1.6125,-4.16563 0,-5.64375c1.6125,-1.6125 4.16563,-1.6125 5.64375,0l31.30938,31.30938c1.6125,1.6125 1.6125,4.16563 0,5.64375c-0.80625,0.80625 -1.74688,1.20938 -2.82188,1.20938zM69.06875,95.27188c3.62813,0 6.9875,-1.34375 9.54063,-3.89688c1.6125,-1.6125 1.6125,-4.16562 0,-5.64375c-1.6125,-1.6125 -4.16563,-1.6125 -5.64375,0c-2.01562,2.01563 -5.50938,2.01563 -7.65938,0l-40.98437,-40.85c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0c-1.6125,1.6125 -1.6125,4.16562 0,5.64375l40.85,40.85c2.55313,2.55313 5.9125,3.89688 9.54062,3.89688zM122.41563,106.82813c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0c-1.47813,1.6125 -1.6125,4.16562 0,5.64375l25.53125,25.53125c0.80625,0.80625 1.20937,1.74687 1.20937,2.82187c0,1.075 -0.40312,2.15 -1.20937,2.82188c-1.47813,1.47812 -4.16563,1.47812 -5.64375,0l-43.80625,-43.5375c-1.47812,-1.47812 -4.16562,-1.47812 -5.64375,0l-43.5375,43.5375c-1.47813,1.47813 -4.16563,1.47813 -5.64375,0c-0.80625,-0.80625 -1.20937,-1.74687 -1.20937,-2.82187c0,-1.075 0.40313,-2.15 1.20937,-2.82188l29.025,-29.15938c1.6125,-1.6125 1.6125,-4.16562 0,-5.64375c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0l-29.15937,29.025c-2.28438,2.28438 -3.49375,5.375 -3.49375,8.6c0,3.225 1.20937,6.31563 3.49375,8.6c2.28437,2.28438 5.375,3.49375 8.6,3.49375c3.225,0 6.31562,-1.20938 8.6,-3.49375l40.58125,-40.85l40.85,40.85c2.28438,2.28438 5.375,3.49375 8.6,3.49375c3.225,0 6.31563,-1.20938 8.6,-3.49375c2.28438,-2.28438 3.49375,-5.375 3.49375,-8.6c0,-3.225 -1.20938,-6.31563 -3.49375,-8.6zM84.25313,66.65c1.075,1.075 1.6125,2.41875 1.6125,3.7625c0,1.34375 -0.5375,2.82188 -1.6125,3.7625c-0.80625,0.80625 -1.20937,1.74687 -1.20937,2.82188c0,1.075 0.40313,2.15 1.20937,2.82187l20.29063,19.75312c0.80625,0.80625 1.88125,1.20938 2.82187,1.20938c0.94062,0 2.01563,-0.40313 2.82187,-1.20938l36.0125,-36.0125c11.01875,-11.01875 11.01875,-28.89062 0,-39.90937c-1.47813,-1.47813 -4.16563,-1.47813 -5.64375,0l-36.95312,37.22187c-1.6125,1.6125 -1.6125,4.16562 0,5.64375c1.6125,1.6125 4.16562,1.6125 5.64375,0l33.8625,-33.8625c5.10625,7.79375 4.3,18.54375 -2.55312,25.39688l-33.05625,33.19063l-15.05,-14.64688c0.94062,-1.88125 1.47812,-4.03125 1.47812,-6.18125c0,-3.62812 -1.34375,-6.9875 -3.89688,-9.54062l-40.98437,-40.71562c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0c-1.6125,1.6125 -1.6125,4.16563 0,5.64375z" fill="#000000"></path></g></g></svg>
+  —</h1>
 
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th>Id</th>
-                    <td>{{ user.id }}</td>
-                </tr>
-                <tr>
-                    <th>Username</th>
-                    <td>{{ user.username }}</td>
-                </tr>
-                <tr>
-                    <th>Roles</th>
-                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                </tr>
-                <tr>
-                    <th>Password</th>
-                    <td>{{ user.password }}</td>
-                </tr>
-                <tr>
-                    <th>Firstname</th>
-                    <td>{{ user.firstname }}</td>
-                </tr>
-                <tr>
-                    <th>Lastname</th>
-                    <td>{{ user.lastname }}</td>
-                </tr>
-                <tr>
-                    <th>Birthdate</th>
-                    <td>{{ user.birthdate ? user.birthdate|date('Y-m-d') : '' }}</td>
-                </tr>
-                <tr>
-                    <th>Gender</th>
-                    <td>{{ user.gender }}</td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td>{{ user.email }}</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="row uk-margin-medium-top">
-            <div class="col-md-auto">
-                <a class="btn btn-light mr-1 text-decoration-none border border-secondary" href="{{ path('user_edit', {'id': user.id}) }}"><img src="https://img.icons8.com/cotton/64/000000/edit--v2.png" width="25"/>modifier</a>
-            </div>
-            <div class="col-md-auto">
-                {{ include('user/_delete_form.html.twig') }}
-            </div>
+  <div class="row uk-margin-large">
+    <div class="col-sm">
+      <form class="uk-form-horizontal">
+        <div class="uk-margin-small">
+          <label class="uk-form-label uk-text-bold">Civilité</label>
+          <div class="uk-form-controls">
+            <input class="uk-input uk-form-width-medium uk-border-rounded" type="text" value="{{ user.gender }}" disabled>
+          </div>
         </div>
-
-        <a class="btn btn-warning text-decoration-none uk-margin-medium-top" href="{{ path('user_index') }}">
-            <img class="mr-1" src="https://img.icons8.com/fluent-systems-filled/24/000000/long-arrow-left.png"/>back to list
-        </a>
-
+        <div class="uk-margin-small">
+          <div class="uk-form-label uk-text-bold">Nom</div>
+          <div class="uk-form-controls">
+            <input class="uk-input uk-form-width-medium uk-border-rounded" type="text" value="{{ user.firstname }}" disabled>
+          </div>
+        </div>
+        <div class="uk-margin-small">
+          <div class="uk-form-label uk-text-bold">Prénom</div>
+          <div class="uk-form-controls">
+            <input class="uk-input uk-form-width-medium uk-border-rounded" type="text" value="{{ user.lastname }}" disabled>
+          </div>
+        </div>
+        <div class="uk-margin-small">
+          <div class="uk-form-label uk-text-bold">Date de naissance</div>
+          <div class="uk-form-controls">
+            <input class="uk-input uk-form-width-medium uk-border-rounded" type="text" value="{{ user.birthdate ? user.birthdate|date('d F Y') : '' }}" disabled>
+          </div>
+        </div>
+      </form>
     </div>
 
-    {# inlude footer #}
-    {% include 'home/footer.html.twig' %}
+    <div class="col-sm">
+      <form class="uk-form-horizontal">
+        <div class="uk-margin-small">
+          <label class="uk-form-label uk-text-bold">Username</label>
+          <div class="uk-form-controls">
+            <input class="uk-input uk-form-width-large uk-border-rounded" type="text" value="{{ user.username }}" disabled>
+          </div>
+        </div>
+        <div class="uk-margin-small">
+          <div class="uk-form-label uk-text-bold">Email</div>
+          <div class="uk-form-controls">
+            <input class="uk-input uk-form-width-large uk-border-rounded" type="text" value="{{ user.email }}" disabled>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row uk-margin-medium-top">
+    <div class="col-md-auto">
+      <a class="btn btn-light mr-1 text-decoration-none border border-secondary" href="{{ path('user_edit', {'id': user.id}) }}"><img src="https://img.icons8.com/cotton/64/000000/edit--v2.png" width="25"/>modifier</a>
+    </div>
+    <div class="col-md-auto">
+      {{ include('user/_delete_form.html.twig') }}
+    </div>
+  </div>
+
+  <h1 class="uk-margin-large uk-text-uppercase uk-text-center">—&nbsp;Vos recettes
+    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+    width="64" height="64"
+    viewBox="0 0 172 172"
+    style=" fill:#000000; vertical-align: text-top;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M145.25938,135.31563l-37.75938,-38.56563l35.87813,-35.87813c9.40625,-9.40625 9.40625,-24.725 0,-34.26562l-53.61563,53.75l-2.41875,-3.35937l0.5375,-0.5375c3.09062,-3.09062 3.09062,-8.19687 0,-11.42187l-10.48125,-10.48125l-24.59063,24.85938l10.48125,10.48125c3.09063,3.09062 8.19688,3.09062 11.42188,0l1.075,-1.075l2.6875,2.55313l-43.26875,43.80625c-3.09062,3.09062 -3.09062,8.19687 0,11.42188c3.09063,3.225 8.19688,3.09062 11.42188,0l43.40313,-43.67188l11.15313,11.15313l32.65313,32.65312c3.09062,3.09062 8.19687,3.09062 11.42188,0c3.09062,-3.225 3.09062,-8.33125 0,-11.42187z" fill="#ffffff"></path><path d="M65.17188,70.68125c-1.075,0 -2.01562,-0.40313 -2.82187,-1.20938l-31.30937,-31.30937c-1.6125,-1.6125 -1.6125,-4.16563 0,-5.64375c1.6125,-1.6125 4.16563,-1.6125 5.64375,0l31.30938,31.30938c1.6125,1.6125 1.6125,4.16563 0,5.64375c-0.80625,0.80625 -1.74688,1.20938 -2.82188,1.20938zM69.06875,95.27188c3.62813,0 6.9875,-1.34375 9.54063,-3.89688c1.6125,-1.6125 1.6125,-4.16562 0,-5.64375c-1.6125,-1.6125 -4.16563,-1.6125 -5.64375,0c-2.01562,2.01563 -5.50938,2.01563 -7.65938,0l-40.98437,-40.85c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0c-1.6125,1.6125 -1.6125,4.16562 0,5.64375l40.85,40.85c2.55313,2.55313 5.9125,3.89688 9.54062,3.89688zM122.41563,106.82813c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0c-1.47813,1.6125 -1.6125,4.16562 0,5.64375l25.53125,25.53125c0.80625,0.80625 1.20937,1.74687 1.20937,2.82187c0,1.075 -0.40312,2.15 -1.20937,2.82188c-1.47813,1.47812 -4.16563,1.47812 -5.64375,0l-43.80625,-43.5375c-1.47812,-1.47812 -4.16562,-1.47812 -5.64375,0l-43.5375,43.5375c-1.47813,1.47813 -4.16563,1.47813 -5.64375,0c-0.80625,-0.80625 -1.20937,-1.74687 -1.20937,-2.82187c0,-1.075 0.40313,-2.15 1.20937,-2.82188l29.025,-29.15938c1.6125,-1.6125 1.6125,-4.16562 0,-5.64375c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0l-29.15937,29.025c-2.28438,2.28438 -3.49375,5.375 -3.49375,8.6c0,3.225 1.20937,6.31563 3.49375,8.6c2.28437,2.28438 5.375,3.49375 8.6,3.49375c3.225,0 6.31562,-1.20938 8.6,-3.49375l40.58125,-40.85l40.85,40.85c2.28438,2.28438 5.375,3.49375 8.6,3.49375c3.225,0 6.31563,-1.20938 8.6,-3.49375c2.28438,-2.28438 3.49375,-5.375 3.49375,-8.6c0,-3.225 -1.20938,-6.31563 -3.49375,-8.6zM84.25313,66.65c1.075,1.075 1.6125,2.41875 1.6125,3.7625c0,1.34375 -0.5375,2.82188 -1.6125,3.7625c-0.80625,0.80625 -1.20937,1.74687 -1.20937,2.82188c0,1.075 0.40313,2.15 1.20937,2.82187l20.29063,19.75312c0.80625,0.80625 1.88125,1.20938 2.82187,1.20938c0.94062,0 2.01563,-0.40313 2.82187,-1.20938l36.0125,-36.0125c11.01875,-11.01875 11.01875,-28.89062 0,-39.90937c-1.47813,-1.47813 -4.16563,-1.47813 -5.64375,0l-36.95312,37.22187c-1.6125,1.6125 -1.6125,4.16562 0,5.64375c1.6125,1.6125 4.16562,1.6125 5.64375,0l33.8625,-33.8625c5.10625,7.79375 4.3,18.54375 -2.55312,25.39688l-33.05625,33.19063l-15.05,-14.64688c0.94062,-1.88125 1.47812,-4.03125 1.47812,-6.18125c0,-3.62812 -1.34375,-6.9875 -3.89688,-9.54062l-40.98437,-40.71562c-1.6125,-1.6125 -4.16562,-1.6125 -5.64375,0c-1.6125,1.6125 -1.6125,4.16563 0,5.64375z" fill="#000000"></path></g></g></svg>
+  —</h1>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for createRecettes in user.createRecettes %}
+        <div class="col">
+            <div class="card h-75 shadow" style="border-radius: 30px;">
+                <img
+                    src="{{ asset('uploads/photos/' ~ createRecettes.photoFilename) }}"
+                    class="card-img-top"
+                    alt="..."
+                    style="border-radius: 30px 30px 0px 0px;"
+                />
+                <div class="uk-card-badge uk-label bg-dark">{{ createRecettes.categorie }}</div>
+                <div class="uk-card-header">
+                    <h5 class="uk-card-title uk-text-uppercase uk-text-bold uk-text-center">{{ createRecettes.TitreRecette }}</h5>
+                </div>
+                <div class="uk-card-body">
+                    <p>Difficulté : {{ createRecettes.Difficulte }}</p>
+                    <p>Nombres de personnes : {{ createRecettes.NbPersonnes }}</p>
+                </div>
+                <hr class="uk-divider-small uk-flex uk-text-center mb-1 mx-4">
+                <div class="uk-card-footer">
+                    <a href="{{ path('create_recette_show', {'id': createRecettes.id}) }}" class="uk-button uk-button-text">Voir la recette</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <a class="btn btn-warning text-decoration-none" href="{{ path('create_recette_new') }}">
+        <img class="mr-1" src="https://img.icons8.com/fluent-systems-filled/24/000000/plus.png"/>créer une nouvelle recette
+    </a>
+</div>
+
+{# inlude footer #}
+{% include 'home/footer.html.twig' %}
+
 {% endblock %}

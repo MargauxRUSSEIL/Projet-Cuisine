@@ -45,7 +45,7 @@ class CreateRecetteController extends AbstractController
             if ($photoFile) {
                 $originalFilename = pathinfo($photoFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $photoFile->guessExtension();
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$photoFile->guessExtension();
                 try {
                     $photoFile->move(
                         $this->getParameter('photos_directory'),
@@ -74,7 +74,7 @@ class CreateRecetteController extends AbstractController
     /**
      * @Route("/recette/{id}", name="create_recette_show", methods={"GET", "POST"})
      */
-    public function show(Request $request, CreateRecette $create_recette): Response
+    public function show(Request $request,CreateRecette $create_recette): Response
     {
         $rating = new Rating();
         $formRating = $this->createForm(RatingType::class, $rating);

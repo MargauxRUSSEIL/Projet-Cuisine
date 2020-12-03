@@ -26,17 +26,17 @@
                               <img class="uk-margin-large-right" src="{{asset('build/home_menu.png')}}" width="150">
                             </a>
                                 <div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
+
                                   <div class="uk-navbar-dropdown-grid uk-child-width-1-2" uk-grid>
                                       <div>
                                           <ul class="uk-nav uk-navbar-dropdown-nav">
-                                              <li class="uk-active uk-text-uppercase uk-text-bolder"><a href="#">Mon Compte</a></li>
-                                              <li><a href="#">
+                                              <li>
                                                 {% if app.user %}
-                                                <a href="{{ path('user_show', { 'id': app.user.id }) }}">{{ app.user.username }}</a>
+                                                <a class="uk-active uk-text-uppercase uk-text-bolder uk-nav-header" href="{{ path('user_show', { 'id': app.user.id }) }}">Mon Compte&nbsp;</a>
                                                 {% else %}
-                                                <a href="{{ path('app_login') }}" uk-icon="icon: user">Login</a>
+                                                <a class="uk-active uk-text-uppercase uk-text-bolder uk-nav-header" href="{{ path('app_login') }}">Cook</a>
                                                 {% endif %}
-                                              </a></li>
+                                              </li>
                                               <li class="uk-nav-header uk-text-uppercase uk-text-bolder">Recettes</li>
                                               <li><a href="#">Nouveauté</a></li>
                                               <li><a href="#">Coup de coeur</a></li>
@@ -44,8 +44,13 @@
                                               <li><a href="#">Plats</a></li>
                                               <li><a href="#">Déserts</a></li>
                                               <li><a href="#">Végétarien</a></li>
-                                              <li class="uk-nav-divider mr-5 uk-margin-top"></li>
-                                              <li><a class="uk-text-bolder" href="#">Déconnexion&nbsp;<span uk-icon="icon: sign-out"></span></a></li>
+                                              <li class="">
+                                              {% if app.user %}
+                                              <li class="uk-nav-divider mr-5 mb-3 uk-margin-top"></li>
+                                              <li><a class="uk-text-bolder" href="{{ path('app_logout') }}">Déconnexion&nbsp;<span uk-icon="icon: sign-out"></span></a></li>
+                                              {% else %}
+                                              {% endif %}
+                                              </li>
                                           </ul>
                                       </div>
                                       <div class="uk-cover-container uk-margin-remove">
@@ -61,7 +66,6 @@
                               <a class="pb-3" href="{{ path('user_show', { 'id': app.user.id }) }}">Bienvenue {{ app.user.username }}
                                 <img style="vertical-align: middle;" class="mb-1 ml-1" src="https://img.icons8.com/offices/30/000000/cook-male.png"/>
                               </a>
-
                               {% else %}
                               <a class="pb-3" href="{{ path('app_login') }}" uk-icon="icon: user">Connexion&nbsp;&nbsp;</a>
                               {% endif %}
@@ -90,4 +94,3 @@
     <a href="#love" class="scroll-down" address="true" uk-scroll></a>
   </section>
 </header>
-
