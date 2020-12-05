@@ -1,47 +1,82 @@
-{{ form_start(form) }}
-<div class="row">
-  <div class="col">
-    {{ form_row(form.user) }}
-    {{ form_row(form.createdAt) }}
+{{ form_start(form, {'attr': {'class': 'uk-form-horizontal'}}) }}
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Utilisateur</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.user, {'attr': {'class': 'uk-width-large'}}) }}
+      </div>
   </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Créer le</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.createdAt, {'attr': {'class': 'uk-width-large'}}) }}
+      </div>
   </div>
-  <div class="row">
-  <div class="col">
-    {{ form_widget(form.photo) }}
-    <div class="js-upload uk-placeholder uk-text-center uk-width-1-1 uk-height-medium"><br><br><br><br>
-    <span uk-icon="icon: cloud-upload"></span>
-    <span class="uk-text-middle">Attach binaries by dropping them here or</span>
-    <div uk-form-custom>
-        <input type="file" multiple>
-        <span class="uk-link">selecting one</span>
-    </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Photo de la recette</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.photo) }}
+      </div>
   </div>
-  <div class="col">
-    <div class="uk-width-1-1 uk-margin">
-          {{ form_label(form.TitreRecette, 'Titre') }}
-          {{ form_widget(form.TitreRecette) }}
-          {{ form_row(form.Difficulte) }}
-          {{ form_row(form.TempsCuisson) }}
-          {{ form_row(form.TempsPreparation) }}
-          {{ form_row(form.NbPersonnes) }}
-    </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Catégorie</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.categorie, {'attr': {'class': 'uk-width-large'}}) }}
+      </div>
   </div>
-  <div class="col">
-    {{ form_row(form.Presentation) }}
-    {{ form_row(form.ingredients) }}
-    {{ form_row(form.instruments) }}
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Nom de la recette</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.TitreRecette, {'attr': {'class': 'uk-width-large'}}) }}
+      </div>
   </div>
-</div>
-<div class="row">
-  <div class="col">
-  <div class="uk-width-1-1 uk-margin">
-    {{ form_row(form.recette) }}
-    </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Difficulté</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.Difficulte, {'attr': {'class': 'uk-width-large'}}) }}
+      </div>
   </div>
-</div>
-</div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Nbr. de personne</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.NbPersonnes, {'attr': {'class': 'uk-width-small'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Temps de préparation</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.TempsPreparation) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Temps de cuisson</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.TempsCuisson) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Présentation</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.Presentation, {'attr': {'class': 'uk-textarea'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Ingédients</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.ingredients, {'attr': {'class': 'uk-textarea'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Instruments</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.instruments, {'attr': {'class': 'uk-textarea'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Recette</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.recette, {'attr': {'class': 'uk-textarea'}}) }}
+      </div>
+  </div>
 
-    <button class="btn btn-info uk-margin">
-        <img class="mr-1" src="https://img.icons8.com/fluent/48/000000/save.png"  width="25"/>{{ button_label|default('enregistrer') }}
-    </button>
+  <button class="btn btn-dark uk-margin">{{ button_label|default('enregistrer') }}</button>
 {{ form_end(form) }}

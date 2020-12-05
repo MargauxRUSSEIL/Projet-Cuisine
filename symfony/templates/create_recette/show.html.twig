@@ -3,99 +3,141 @@
 {% block title %}{{ create_recette.TitreRecette }}{% endblock %}
 
 {% block body %}
-    <h1>{{ create_recette.TitreRecette }}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Nom recette : </th>
-                <td>{{ create_recette.TitreRecette }}</td>
-            </tr>
-            <tr>
-                <th>Présentation : </th>
-                <td>{{ create_recette.Presentation }}</td>
-            </tr>
-            <tr>
-                <th>Pour : </th>
-                <td>{{ create_recette.NbPersonnes }}</td>
-            </tr>
-            <tr>
-                <th>Temps de préparation : </th>
-                <td>{{ create_recette.TempsPreparation ? create_recette.TempsPreparation|date('H : i') : '' }} Heure(s)</td>
-            </tr>
-           <tr>
-                <th>Temps de cuisson : </th>
-                <td>{{ create_recette.TempsCuisson ? create_recette.TempsCuisson|date('H : i') : '' }} Heure(s)</td>
-            </tr>
-            <tr>
-                <th>Difficulté de la recette : </th>
-                <td>{{ create_recette.Difficulte }}</td>
-            </tr>
-            <tr>
-                <th>Photo : </th>
-                <td><a href="{{ asset('uploads/photos/' ~ create_recette.photoFilename) }}"><img src="{{ asset('uploads/photos/' ~ create_recette.photoFilename) }}" width="50px" height="auto"></a></td>
-            </tr>
-            <tr>
-                <th>Note : </th>
-                <td>
-                {% set size = create_recette.ratings | length %}
-                {% if size > 0 %}
-                    {% set somme = 0.0 %}
-                    {% set compteur = 0 %}
-                    {% for ratings in create_recette.ratings %}
-                        {% set somme = somme + ratings.note %}
-                        {% set compteur = compteur + 1 %}
-                    {% endfor %}
-                    {{ somme / compteur }}
-                {% else %}
-                    Il n'y a pas de notes.
-                {% endif %}</td>
-                {% if app.user %}
-                <th>Votre note : </th>
-                <td>{{ include('rating/_form.html.twig') }}</td>
-                {% endif %}
-            </tr>
-
-        </tbody>
-    </table>
-
-    <br/>
-    <h1>Commentaires</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Note</th>
-                <th>Commentaire</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <tr>
+{# inlude menu #}
+{% include 'home/navbar.html.twig' %}
+<div class="container uk-margin-large uk-margin-xlarge-top uk-margin-xlarge-bottom">
+  <div class="row uk-margin-large-bottom">
+    <div class="col-sm">
+      <img src="{{ asset('uploads/photos/' ~ create_recette.photoFilename) }}" class="rounded mx-auto d-block uk-width-large" alt="...">
+      <div class="uk-grid-divider uk-child-width-auto@m uk-margin-medium-top uk-flex-center" uk-grid>
+        <div>
+          <p class="text-center"><span class="uk-text-meta uk-margin-small-bottom">Difficulte</span><br><span class="uk-text-bold uk-text-large">{{ create_recette.Difficulte }}</span></p>
+        </div>
+        <div>
+          <p class="text-center"><span class="uk-text-meta uk-margin-small-bottom">Note</span><br>
+            {% set size = create_recette.ratings | length %}
+            {% if size > 0 %}
+            {% set somme = 0.0 %}
+            {% set compteur = 0 %}
             {% for ratings in create_recette.ratings %}
-                <td>{{ ratings.user.username }}</td>
-                <td>{{ ratings.note }}</td>
-                <td>{{ ratings.commentaire }}</td>
-            </tr>
-            {% else %}
-            <tr>
-                <td colspan="3">Il n'y a pas de notes et/ou commentaires</td>
-            </tr>
+            {% set somme = somme + ratings.note %}
+            {% set compteur = compteur + 1 %}
             {% endfor %}
-        </tbody>
-    </table>
-    <br/>
+            <span class="uk-text-bold uk-text-large">{{ somme / compteur }}</span><span class="uk-text-bottom"> / 5</span>
+            {% else %}
+            Il n'y a pas de notes.
+            {% endif %}
+          </p>
+        </div>
+      </div>
+      {% if app.user and ('ROLE_ADMIN' in app.user.roles ? app.user.roles|json_encode : '' or app.user.username == create_recette.user.username) %}
+      <div class="uk-grid-collapse uk-width-auto@m uk-flex-center uk-margin-xlarge-top" uk-grid>
+        <div>
+          <a class="btn btn-light mr-1 text-decoration-none border border-secondary uk-margin-small-right" href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">
+            <img src="https://img.icons8.com/cotton/64/000000/edit--v2.png" width="25"/>modifier
+          </a>
+        </div>
+        <div>
+          {{ include('create_recette/_delete_form.html.twig') }}
+        </div>
+      </div>
 
-    <a href="{{ path('create_recette_index') }}">Retour a mes recettes</a>
+      {% endif %}
+    </div>
+    <div class="col-sm">
+      <h1 class="uk-text-uppercase uk-text-bolder text-center uk-margin-medium-bottom">{{ create_recette.TitreRecette }}</h1>
+      <ul uk-accordion>
+        <li class="uk-open">
+          <h4 class="uk-text-uppercase uk-text-bolder">Présentation</h4>
+          <div class="uk-accordion-content uk-margin-medium">
+            <p>{{ create_recette.Presentation }}</p>
+          </div>
+        </li>
+        <div class="dropdown-divider uk-margin-bottom"></div>
+        <li class="uk-open">
+          <h4 class="uk-text-uppercase uk-text-bolder">Préparation</h4>
+          <div class="uk-accordion-content uk-margin-medium">
+            <div class="uk-grid-divider uk-child-width-auto@m" uk-grid>
+              <div>
+                <p class="text-center"><span class="uk-text-meta">Temps de préparation</span><br>{{ create_recette.TempsPreparation ? create_recette.TempsPreparation|date('H : i') : '' }} Heure</p>
+              </div>
+              <div>
+                <p class="text-center"><span class="uk-text-meta">Temps de cuisson</span><br>{{ create_recette.TempsCuisson ? create_recette.TempsCuisson|date('H : i') : '' }} Heure</p>
+              </div>
+              <div>
+                <p class="text-center"><span class="uk-text-meta">Nombre de personnes</span><br>{{ create_recette.NbPersonnes }}</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="uk-open">
+          <h4 class="uk-text-uppercase uk-text-bolder">Ingrédient</h4>
+          <div class="uk-accordion-content uk-margin-medium">
+            <p>{{ create_recette.ingredients }}</p>
+          </div>
+        </li>
+        <li class="uk-open">
+          <h4 class="uk-text-uppercase uk-text-bolder">Instruments</h4>
+          <div class="uk-accordion-content uk-margin-medium">
+            <p>{{ create_recette.instruments }}</p>
+          </div>
+        </li>
+        <li class="uk-open">
+          <h4 class="uk-text-uppercase uk-text-bolder">Etape préparation recette</h4>
+          <div class="uk-accordion-content uk-margin-medium">
+            <p>{{ create_recette.recette }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 
 
-    {% if app.user and ('ROLE_ADMIN' in app.user.roles ? app.user.roles|json_encode : '' or app.user.username == create_recette.user.username) %}
-        <a href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">edit</a>
-        {{ include('create_recette/_delete_form.html.twig') }}
-    {% endif %}
 
+  <a class="btn btn-warning text-decoration-none uk-margin-medium-bottom" href="{{ path('create_recette_index') }}">
+    <img class="mr-1" src="https://img.icons8.com/fluent-systems-filled/24/000000/long-arrow-left.png"/>Retour au recettes
+  </a>
 
+  <!-- This is the modal with the default close button -->
+  <div id="modal-close-default" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+      <button class="uk-modal-close-default" type="button" uk-close></button>
+      <h2 class="uk-modal-title">Votre avis sur la recette</h2>
+      <p>{{ include('rating/_form.html.twig') }}</p>
+    </div>
+  </div>
+
+  <div class="row uk-margin-large-top">
+    <div class="col-sm">
+      <h2 class="">Commentaires</h2>
+    </div>
+    <div class="col-sm text-right">
+      <button class="btn btn-dark uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Donner votre avis</button>
+    </div>
+  </div>
+
+  <div class="uk-text-center" uk-grid>
+    <div class="uk-width-expand@m">
+      {% for ratings in create_recette.ratings %}
+      <div class="dropdown-divider"></div>
+      <div class="uk-card uk-card-small uk-card-body uk-text-left">
+        <h5 class="uk-text-left uk-text-bold"><img class="mr-2 mb-2" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" width="40"/>{{ ratings.user.username }}</h5>
+        <p class="uk-text-meta uk-margin-remove-top">Note : &nbsp;{{ ratings.note }}/5</p>
+        <p>{{ ratings.commentaire }}</p>
+      </div>
+      {% else %}
+      <div class="uk-margin-large-top">
+        <p>Il n'y a pas de notes et/ou commentaires</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+{# inlude footer #}
+{% include 'home/footer.html.twig' %}
 
 
 {% endblock %}
