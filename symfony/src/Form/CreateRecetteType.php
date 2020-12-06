@@ -13,6 +13,8 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
+
 
 class CreateRecetteType extends AbstractType
 {
@@ -39,8 +41,14 @@ class CreateRecetteType extends AbstractType
             ->add('ingredients')
             ->add('instruments')
             ->add('recette')
-            ->add('TempsCuisson')
-            ->add('TempsPreparation')
+            ->add('TempsCuisson', TimeType::class, [
+            'input'  => 'timestamp',
+            'widget' => 'single_text'
+            ])
+            ->add('TempsPreparation', TimeType::class, [
+            'input'  => 'timestamp',
+            'widget' => 'single_text'
+            ])
             ->add(
                 'createdAt',
                 DateType::class,

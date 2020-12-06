@@ -62,7 +62,7 @@ class CreateRecetteController extends AbstractController
             $entityManager->persist($create_recette);
             $entityManager->flush();
 
-            return $this->redirectToRoute('create_recette_index');
+            return $this->redirectToRoute('categorie_nouveaute');
         }
 
         return $this->render('create_recette/new.html.twig', [
@@ -85,7 +85,7 @@ class CreateRecetteController extends AbstractController
             $entityManager->persist($rating);
             $entityManager->flush();
 
-            return $this->redirectToRoute('create_recette_index');
+            return $this->redirectToRoute('categorie_nouveaute');
         }
 
 
@@ -108,7 +108,7 @@ class CreateRecetteController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('create_recette_index');
+            return $this->redirectToRoute('categorie_nouveaute');
         }
 
         return $this->render('create_recette/edit.html.twig', [
@@ -129,6 +129,6 @@ class CreateRecetteController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('create_recette_index');
+        return $this->redirectToRoute('categorie_nouveaute');
     }
 }
