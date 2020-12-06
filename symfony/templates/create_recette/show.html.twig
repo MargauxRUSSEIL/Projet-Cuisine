@@ -60,13 +60,13 @@
           <div class="uk-accordion-content uk-margin-medium">
             <div class="uk-grid-divider uk-child-width-auto@m" uk-grid>
               <div>
-                <p class="text-center"><span class="uk-text-meta">Temps de préparation</span><br>{{ create_recette.TempsPreparation ? create_recette.TempsPreparation|date('H : i') : '' }} Heure</p>
+                <p class="text-center"><span class="uk-text-meta">Temps de préparation</span><br><br><img class="mb-1 mr-2" src="https://img.icons8.com/ios-filled/50/000000/clock.png" width="15"/>{{ create_recette.TempsPreparation ? create_recette.TempsPreparation|date('H : i') : '' }}</p>
               </div>
               <div>
-                <p class="text-center"><span class="uk-text-meta">Temps de cuisson</span><br>{{ create_recette.TempsCuisson ? create_recette.TempsCuisson|date('H : i') : '' }} Heure</p>
+                <p class="text-center"><span class="uk-text-meta">Temps de cuisson</span><br><br><img class="mb-1 mr-2" src="https://img.icons8.com/ios-filled/50/000000/clock.png" width="15"/>{{ create_recette.TempsCuisson ? create_recette.TempsCuisson|date('H : i') : '' }}</p>
               </div>
               <div>
-                <p class="text-center"><span class="uk-text-meta">Nombre de personnes</span><br>{{ create_recette.NbPersonnes }}</p>
+                <p class="text-center"><span class="uk-text-meta">Nombre de personnes</span><br><br><img class="mb-1 mr-1" src="https://img.icons8.com/ios-filled/50/000000/men-age-group-4.png" width="20"/>{{ create_recette.NbPersonnes }}</p>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@
           </div>
         </li>
         <li class="uk-open">
-          <h4 class="uk-text-uppercase uk-text-bolder">Etape préparation recette</h4>
+          <h4 class="uk-text-uppercase uk-text-bolder">Étape à la préparation de la recette</h4>
           <div class="uk-accordion-content uk-margin-medium">
             <p>{{ create_recette.recette }}</p>
           </div>
@@ -94,8 +94,7 @@
   </div>
 
 
-
-  <a class="btn btn-warning text-decoration-none uk-margin-medium-bottom" href="{{ path('create_recette_index') }}">
+  <a class="btn btn-warning text-decoration-none uk-margin-medium-bottom" href="{{ path('categorie_nouveaute') }}">
     <img class="mr-1" src="https://img.icons8.com/fluent-systems-filled/24/000000/long-arrow-left.png"/>Retour au recettes
   </a>
 
@@ -123,7 +122,7 @@
       <div class="dropdown-divider"></div>
       <div class="uk-card uk-card-small uk-card-body uk-text-left">
         <h5 class="uk-text-left uk-text-bold"><img class="mr-2 mb-2" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" width="40"/>{{ ratings.user.username }}</h5>
-        <p class="uk-text-meta uk-margin-remove-top">Note : &nbsp;{{ ratings.note }}/5</p>
+        <p class="uk-text-meta uk-margin-remove-top"><div class="Stars mt-0 mb-2" style="--rating: {{ ratings.note }};" aria-label=""></div>&nbsp;{{ ratings.note }}<span class="uk-text-meta">&nbsp;/&nbsp;5</span></p>
         <p>{{ ratings.commentaire }}</p>
       </div>
       {% else %}

@@ -8,14 +8,13 @@
       <p class="h5 uk-margin-bottom uk-margin-large-right text-center">Recette</p>
         <div class="row text-left">
           <div class="col">
-            <p class="uk-margin-small"><a class="text-decoration-none" href=""><small>Nouveauté</small></a> </p>
-            <p  class="uk-margin-small"><a class="text-decoration-none" href=""><small>Entrées</small></a></p>
-            <p class="uk-margin-small"><a class="text-decoration-none" href=""><small>Plats</small></a></p>
-            <p class="uk-margin-small"><a class="text-decoration-none" href=""><small>Déserts</small></a></p>
+            <p  class="uk-margin-small"><a class="text-decoration-none uk-link-reset" href="{{ path('categorie_entrees') }}"><small>Entrées</small></a></p>
+            <p class="uk-margin-small"><a class="text-decoration-none uk-link-reset" href="{{ path('categorie_plats') }}"><small>Plats</small></a></p>
+            <p class="uk-margin-small"><a class="text-decoration-none uk-link-reset" href="{{ path('categorie_deserts') }}"><small>Déserts</small></a></p>
           </div>
           <div class="col">
-            <p class="uk-margin-small"><a class="text-decoration-none" href=""><small>Coup de coeur</small></a></p>
-            <p class="uk-margin-small"><a class="text-decoration-none" href=""><small>Végétarien</small></a></p>
+            <p class="uk-margin-small"><a class="text-decoration-none uk-link-reset" href="{{ path('categorie_nouveaute') }}"><small>Nos Recettes</small></a> </p>
+            <p class="uk-margin-small"><a class="text-decoration-none uk-link-reset" href="{{ path('categorie_vegetarien') }}"><small>Végétarien</small></a></p>
           </div>
         </div>
     </div>

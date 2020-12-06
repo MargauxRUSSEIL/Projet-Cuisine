@@ -7,7 +7,7 @@
     <div class="uk-navbar-item">
       <form class="uk-search uk-search-navbar">
         <a href="" style="color:rgb(156, 156, 156); z-index:6; margin-left: 10px; margin-right: 10px;" uk-search-icon></a>
-        <input id="Folow" class="uk-search-input uk-border-pill text-dark" type="search" placeholder="&nbsp;&nbsp;Rechercher une recette">
+        <input id="Folow" class="uk-search-input uk-border-pill text-light" type="search" placeholder="&nbsp;&nbsp;Rechercher une recette">
       </form>
     </div>
   </div>
@@ -23,20 +23,21 @@
           <div class="uk-navbar-dropdown-grid uk-child-width-1-2" uk-grid>
             <div>
               <ul class="uk-nav uk-navbar-dropdown-nav">
-                <li>
                   {% if app.user %}
-                  <a class="uk-active uk-text-uppercase uk-text-bolder uk-nav-header" href="{{ path('user_show', { 'id': app.user.id }) }}">Mon Compte&nbsp;</a>
-                  {% else %}
-                  <a class="uk-active uk-text-uppercase uk-text-bolder uk-nav-header" href="{{ path('app_login') }}">Cook</a>
+                  <li><a class="uk-active uk-text-uppercase uk-text-bolder uk-nav-header" href="{{ path('user_show', { 'id': app.user.id }) }}">Mon Compte&nbsp;</a></li>
+                  {% if app.user and ('ROLE_ADMIN' in app.user.roles ? app.user.roles|json_encode : '') %}
+                  <li><a href="{{ path('create_recette_index') }}">Tables des recette</a></li>
+                  <li><a href="{{ path('user_index') }}">Utilisateurs</a></li>
                   {% endif %}
-                </li>
+                  {% else %}
+                  <li><a class="uk-active uk-text-uppercase uk-text-bolder uk-nav-header" href="{{ path('app_login') }}">Cook</a></li>
+                  {% endif %}
                 <li class="uk-nav-header uk-text-uppercase uk-text-bolder">Recettes</li>
-                <li><a href="{{ path('create_recette_index') }}">Nouveauté</a></li>
-                <li><a href="#">Coup de coeur</a></li>
-                <li><a href="#">Entrées</a></li>
-                <li><a href="#">Plats</a></li>
-                <li><a href="#">Déserts</a></li>
-                <li><a href="#">Végétarien</a></li>
+                <li><a href="{{ path('categorie_nouveaute') }}">Nos Recettes</a></li>
+                <li><a href="{{ path('categorie_entrees') }}">Entrées</a></li>
+                <li><a href="{{ path('categorie_plats') }}">Plats</a></li>
+                <li><a href="{{ path('categorie_deserts') }}">Déserts</a></li>
+                <li><a href="{{ path('categorie_vegetarien') }}">Végétarien</a></li>
                 <li class="">
                   {% if app.user %}
                   <li class="uk-nav-divider mr-5 mb-3 uk-margin-top"></li>

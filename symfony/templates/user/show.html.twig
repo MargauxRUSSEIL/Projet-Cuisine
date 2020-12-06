@@ -81,25 +81,38 @@
     <div class="row row-cols-1 row-cols-md-3 g-4 uk-margin-large-bottom uk-margin-large-top">
     {% for createRecettes in user.createRecettes %}
         <div class="col">
-            <div class="card h-100 uk-cover-container shadow" style="border-radius: 30px;">
-                <div class="uk-cover-container uk-height-medium">
-                  <img
-                    src="{{ asset('uploads/photos/' ~ createRecettes.photoFilename) }}"
-                    class="card-img-top"
-                    alt="..."
-                    style="border-radius: 30px 30px 0px 0px;"
-                  uk-cover>
+          <div class="uk-text-center">
+            <div class="uk-inline-clip uk-transition-toggle shadow" tabindex="0" style="border-radius: 30px;">
+                <div class="card h-100 uk-cover-container shadow" style="border-radius: 30px;">
+                    <div class="uk-cover-container uk-height-medium uk-width-large">
+                      <img
+                        src="{{ asset('uploads/photos/' ~ createRecettes.photoFilename) }}"
+                        class="card-img-top"
+                        alt="..."
+                        style="border-radius: 30px 30px 0px 0px;"
+                      uk-cover>
+                    </div>
+                    <div class="uk-card-badge uk-label bg-dark">{{ createRecettes.categorie }}</div>
+                    <div class="uk-card-header">
+                        <h5 class="uk-card-title uk-text-uppercase uk-text-bold uk-text-center">{{ createRecettes.TitreRecette }}</h5>
+                        {% set size2 = createRecettes.ratings | length %}
+                        {% if size2 > 0 %}
+                            {% set somme = 0.0 %}
+                            {% set compteur = 0 %}
+                            {% for ratings in createRecettes.ratings %}
+                                {% set somme = somme + ratings.note %}
+                                {% set compteur = compteur + 1 %}
+                            {% endfor %}
+                          <div class="Stars mt-0 mb-2" style="--rating: {{ somme / compteur }};" aria-label=""></div>
+                        {% else %}
+                          <div class="mb-2">Il n'y a pas de notes.</div>
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="uk-card-badge uk-label bg-dark">{{ createRecettes.categorie }}</div>
-                <div class="uk-card-header">
-                    <h5 class="uk-card-title uk-text-uppercase uk-text-bold uk-text-center">{{ createRecettes.TitreRecette }}</h5>
+                  <div class="uk-transition-fade uk-position-cover uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle" style="border-radius: 30px;">
+                      <p class="uk-h4 uk-margin-remove"><button type="button" class="btn btn-outline-light" onclick="window.location.href = '{{ path('create_recette_show', {'id': createRecettes.id}) }}';">VOIR LA RECETTE</button></p>
+                    </div>
                 </div>
-
-                <hr class="uk-divider-small uk-flex uk-text-center mb-1 mx-4">
-                <div class="uk-card-footer">
-                    <a href="{{ path('create_recette_show', {'id': createRecettes.id}) }}" class="uk-button uk-button-text">Voir la recette</a>
-                </div>
-
             </div>
         </div>
     {% endfor %}

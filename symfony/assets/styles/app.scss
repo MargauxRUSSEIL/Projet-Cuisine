@@ -3,3 +3,30 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Mono&family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Mono&family=Source+Sans+Pro:wght@600;700&display=swap');
 @import '~bootstrap'; //fichier scss dans node_modules
+
+:root {
+  --star-size: 20px;
+  --star-color: rgb(197, 197, 197);
+  --star-background: #fc0;
+}
+
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times; // make sure ★ appears correctly
+  line-height: 1;
+
+  &::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+// Just to make a preview more beautifull
+
+

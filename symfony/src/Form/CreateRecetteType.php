@@ -32,7 +32,8 @@ class CreateRecetteType extends AbstractType
                 'choices' => [
                     'Entree' => 'Entree',
                     'Plat' => 'Plat',
-                    'Dessert' => 'Dessert'
+                    'Dessert' => 'Dessert',
+                    'Vegetarien' => 'Vegetarien'
                 ]
             ])
             ->add('ingredients')
