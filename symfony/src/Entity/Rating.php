@@ -42,11 +42,6 @@ class Rating
         return $this->id;
     }
 
-  public function getId(): ?int
-  {
-    return $this->id;
-  }
-
   public function getNote(): ?float
   {
     return $this->note;
@@ -75,9 +70,6 @@ class Rating
   {
     return $this->recette;
   }
-
-        return $this;
-    }
 
     public function getCommentaire(): ?string
     {
