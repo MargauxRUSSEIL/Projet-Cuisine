@@ -1,5 +1,82 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr': {'class': 'uk-form-horizontal'}}) }}
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Utilisateur</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.user, {'attr': {'class': 'uk-width-large'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Créer le</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.createdAt, {'attr': {'class': 'uk-width-large'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Photo de la recette</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.photo) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Catégorie</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.categorie, {'attr': {'class': 'uk-width-large'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Nom de la recette</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.TitreRecette, {'attr': {'class': 'uk-width-large'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Difficulté</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.Difficulte, {'attr': {'class': 'uk-width-large'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Nbr. de personne</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.NbPersonnes, {'attr': {'class': 'uk-width-small'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Temps de préparation</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.TempsPreparation, {'attr': {'class': 'uk-width-small'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Temps de cuisson</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.TempsCuisson, {'attr': {'class': 'uk-width-small'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Présentation</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.Presentation, {'attr': {'class': 'uk-textarea'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Ingédients</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.ingredients, {'attr': {'class': 'uk-textarea'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Instruments</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.instruments, {'attr': {'class': 'uk-textarea'}}) }}
+      </div>
+  </div>
+  <div class="uk-margin-small">
+      <label class="uk-form-label uk-text-bold">Recette</label>
+          <div class="uk-form-controls">
+            {{ form_widget(form.recette, {'attr': {'class': 'uk-textarea'}}) }}
+      </div>
+  </div>
+
+  <button class="btn btn-dark uk-margin">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

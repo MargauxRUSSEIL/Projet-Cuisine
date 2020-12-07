@@ -45,7 +45,7 @@ class CreateRecetteController extends AbstractController
             if ($photoFile) {
                 $originalFilename = pathinfo($photoFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $photoFile->guessExtension();
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$photoFile->guessExtension();
                 try {
                     $photoFile->move(
                         $this->getParameter('photos_directory'),
@@ -62,7 +62,7 @@ class CreateRecetteController extends AbstractController
             $entityManager->persist($create_recette);
             $entityManager->flush();
 
-            return $this->redirectToRoute('create_recette_index');
+            return $this->redirectToRoute('categorie_nouveaute');
         }
 
         return $this->render('create_recette/new.html.twig', [
@@ -74,7 +74,7 @@ class CreateRecetteController extends AbstractController
     /**
      * @Route("/recette/{id}", name="create_recette_show", methods={"GET", "POST"})
      */
-    public function show(Request $request, CreateRecette $create_recette): Response
+    public function show(Request $request,CreateRecette $create_recette): Response
     {
         $rating = new Rating();
         $formRating = $this->createForm(RatingType::class, $rating);
@@ -85,7 +85,7 @@ class CreateRecetteController extends AbstractController
             $entityManager->persist($rating);
             $entityManager->flush();
 
-            return $this->redirectToRoute('create_recette_index');
+            return $this->redirectToRoute('categorie_nouveaute');
         }
 
 
@@ -108,7 +108,7 @@ class CreateRecetteController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('create_recette_index');
+            return $this->redirectToRoute('categorie_nouveaute');
         }
 
         return $this->render('create_recette/edit.html.twig', [
@@ -129,6 +129,6 @@ class CreateRecetteController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('create_recette_index');
+        return $this->redirectToRoute('categorie_nouveaute');
     }
 }

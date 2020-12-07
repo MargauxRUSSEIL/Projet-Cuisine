@@ -26,7 +26,6 @@ body {
 
 
 .navbarSearch {
-
     margin-bottom: auto;
     margin-top: auto;
     height: 60px;
@@ -37,7 +36,6 @@ body {
 
 
 #nav {
-
     border: 0;
     outline: 0;
     background: none;
@@ -46,33 +44,17 @@ body {
     line-height: 40px;
 }
 
-
-.Test45 {
-    background: url('../../assets/images/renovation.jpg') no-repeat;
-}
-
 .Cyril {
-     position: absolute;
-     /* postulat de départ */
-     top: 50%;
-     left: 50%;
-     /* à 50%/50% du parent référent */
-     transform: translate(-50%, -50%);
      text-shadow:black 3px 0 3px;
 }
 
 
 footer {
-
-    background-color: black;
-    position: relative;
-    bottom:0;
-    width: 100%;
-
+    box-shadow: 0px 2px 15px 0px rgb(0, 0, 0);
+    text-shadow: 1px 1px 2px black;
 }
 
 footer a {
-    text-decoration: none;
     color: white;
 }
 

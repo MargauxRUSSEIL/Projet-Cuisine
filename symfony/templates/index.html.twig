@@ -3,75 +3,14 @@
 {% block title %}Cook{% endblock %}
 
 {% block body %}
-    <h1>Recettes</h1>
-
-    {% set size = create_recettes | length %}
-    {% if size > 0 %}
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Présentation</th>
-                <th>Note</th>
-                <th>Voir</th>
-            </tr>
-        </thead>
-        <tbody>
- 
-            <tr>
-            {% for create_recette in create_recettes %}
-                <td>{{ create_recette.TitreRecette }}</td>
-                <td>{{ create_recette.Presentation }}</td>
-                <td>
-                    {% set size2 = create_recette.ratings | length %}
-                    {% if size2 > 0 %}
-                        {% set somme = 0.0 %}
-                        {% set compteur = 0 %}
-                        {% for ratings in create_recette.ratings %}
-                            {% set somme = somme + ratings.note %}
-                            {% set compteur = compteur + 1 %}
-                        {% endfor %} 
-                        {{ somme / compteur }}
-                    {% else %}
-                        Il n'y a pas de notes.
-                    {% endif %}
-                </td>
-                <td>
-                    <a href="{{ path('create_recette_show', {'id': create_recette.id}) }}">show</a>
-                </td>
-            </tr>
-                    {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-  
-        </tbody>
-    </table>
-    {% else %}
-        Il n'y a pas de recettes.
-    {% endif %}
-
-
-    <h1>Cook index</h1>
 
     {# inlude menu #}
     {% include 'home/home.html.twig' %}
 
-    
-    <a href="{{ path('create_recette_new') }}">Créer une recette</a>
     {# inlude home #}
     {% include 'home/recette_home.html.twig' %}
 
-    <h1>User index</h1>
-
-    {% if app.user %}
-    <a href="{{ path('user_show', { 'id': app.user.id }) }}">{{ app.user.username }}</a>
-    <a href="{{ path('app_logout') }}">Logout</a>
-    {% else %}
-    <a href="{{ path('app_register') }}">Crée un compte</a>
-    <a href="{{ path('app_login') }}">Login</a>
-    {% endif %}
-
+    {# inlude footer #}
+    {% include 'home/footer.html.twig' %}
 
 {% endblock %}

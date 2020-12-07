@@ -1,4 +1,23 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr': {'class': 'uk-form-stacked'}}) }}
+        <div class="uk-width-1-1 uk-margin">
+            <label class="text-left">Utilisateur</label>
+            {{ form_widget(form.user, {'attr': {'class': 'uk-form-controls uk-width-medium'}}) }}
+        </div>
+        <div class="uk-width-1-1 uk-margin">
+            <label class="uk-form-label">Recette</label>
+            <div class="uk-form-controls">
+                {{ form_widget(form.recette, {'attr': {'class': 'uk-form-controls uk-width-medium'}}) }}
+            </div>
+        </div>
+        <div class="uk-width-1-1 uk-margin">
+            <label class="text-left">Note</label>
+            {{ form_widget(form.note, {'attr': {'class': 'uk-form-controls uk-width-1-4@m'}}) }}
+        </div>
+        <div class="uk-width-1-1 uk-margin">
+            {{ form_widget(form.commentaire, {'attr': {'class': 'uk-form-controls uk-width-medium', 'placeholder': 'Laisser un commentaire'}}) }}
+        </div>
+    <button class="btn btn-dark uk-margin">{{ button_label|default('Envoyer') }}
+    </button>
 {{ form_end(form) }}
+
+
