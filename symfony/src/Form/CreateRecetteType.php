@@ -41,14 +41,8 @@ class CreateRecetteType extends AbstractType
             ->add('ingredients')
             ->add('instruments')
             ->add('recette')
-            ->add('TempsCuisson', TimeType::class, [
-            'input'  => 'timestamp',
-            'widget' => 'single_text'
-            ])
-            ->add('TempsPreparation', TimeType::class, [
-            'input'  => 'timestamp',
-            'widget' => 'single_text'
-            ])
+            ->add('TempsCuisson')
+            ->add('TempsPreparation')
             ->add(
                 'createdAt',
                 DateType::class,
