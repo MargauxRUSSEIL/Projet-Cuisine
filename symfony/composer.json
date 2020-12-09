@@ -104,6 +104,11 @@
         "symfony": {
             "allow-contrib": false,
             "require": "5.1.*"
-        }
+        },
+    "paas": {
+        "engines": {
+        "composer": "2.x"
+      }
+    }
     }
 }
