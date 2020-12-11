@@ -4,7 +4,7 @@
     <a class="uk-navbar-item uk-logo" href="{{ path('index') }}">
       <img  class="uk-margin-small-top uk-margin-small-bottom" src="{{ asset('build/Logo.png') }}" alt="" width="80" height="80">
     </a>
-    <div class="uk-navbar-item">
+    <div class="uk-navbar-item uk-invisible">
       <form class="uk-search uk-search-navbar">
         <a href="" style="color:rgb(156, 156, 156); z-index:6; margin-left: 10px; margin-right: 10px;" uk-search-icon></a>
         <input id="Folow" class="uk-search-input uk-border-pill text-light" type="search" placeholder="&nbsp;&nbsp;Rechercher une recette">
@@ -27,8 +27,7 @@
                   <li><a class="uk-active uk-text-uppercase uk-text-bolder uk-nav-header" href="{{ path('user_show', { 'id': app.user.id }) }}">Mon Compte&nbsp;</a></li>
                   <li><a href="{{ path('create_recette_new') }}">Créer une nouvelle recette</a></li>
                   {% if app.user and ('ROLE_ADMIN' in app.user.roles ? app.user.roles|json_encode : '') %}
-                  <li><a href="{{ path('create_recette_new') }}">Créer une nouvelle recette</a></li>
-                  <li><a href="{{ path('create_recette_index') }}">Tables des recette</a></li>
+                  <li><a href="{{ path('create_recette_index') }}">Tables des recettes</a></li>
                   <li><a href="{{ path('user_index') }}">Utilisateurs</a></li>
                   {% endif %}
                   {% else %}
