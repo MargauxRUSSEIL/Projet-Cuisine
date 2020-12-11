@@ -3,22 +3,22 @@
             {{ form_row(form.gender, {label: 'Sexe'}) }}
         </div>
         <div class="uk-width-1-1 uk-margin">
-            {{ form_row(form.username, {class: 'uk-input'} ) }}
+            {{ form_row(form.username, {label: 'Utilisateur'}) }}
         </div>
         <div class="uk-width-1-1 uk-margin">
-            {{ form_row(form.firstname) }}
+            {{ form_row(form.firstname, {label: 'Prénom'}) }}
         </div>
         <div class="uk-width-1-1 uk-margin">
-            {{ form_row(form.lastname) }}
+            {{ form_row(form.lastname, {label: 'Nom'}) }}
         </div>
         <div class="uk-width-1-1 uk-margin" >
-            {{ form_row(form.birthdate) }}
+            {{ form_row(form.birthdate, {label: 'Date de naissance'}) }}
         </div>
         <div class="uk-width-1-1 uk-margin">
-            {{ form_row(form.password) }}
+            {{ form_row(form.password, {label: 'Mot de passe'}) }}
         </div>
         <div class="uk-width-1-1 uk-margin">
-            {{ form_row(form.email) }}
+            {{ form_row(form.email, {label: 'Adresse email'}) }}
         </div>
-    <button class="btn btn-dark uk-margin">{{ button_label|default('Enregistrer') }}</button>
+    <button id="ButtonDusky" class="btn px-4 uk-text-bold uk-border-pill uk-margin">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

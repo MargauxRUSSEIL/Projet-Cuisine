@@ -34,7 +34,11 @@
               </div>
               <div class="uk-card-badge uk-label bg-dark">{{ create_recette.categorie }}</div>
               <div class="uk-card-header">
-                <h5 class="uk-card-title uk-text-uppercase uk-text-bold uk-text-center">{{ create_recette.TitreRecette }}</h5>
+                 <div class="uk-child-width-1-2@s uk-grid-collapse uk-margin-remove" uk-grid>
+                  <div>
+                    <h5 class="uk-card-title uk-text-uppercase uk-text-bold text-left">{{ create_recette.TitreRecette }}</h5>
+                  </div>
+                  <div>
                 {% set size2 = create_recette.ratings | length %}
                 {% if size2 > 0 %}
                 {% set somme = 0.0 %}
@@ -43,15 +47,22 @@
                 {% set somme = somme + ratings.note %}
                 {% set compteur = compteur + 1 %}
                 {% endfor %}
-                <div class="Stars mt-0 mb-2" style="--rating: {{ somme / compteur }};" aria-label=""></div>
+                <div class="Stars mt-2 text-right uk-margin-remove-right" style="--rating: {{ somme / compteur }};" aria-label=""></div>
                 {% else %}
-                <div class="mb-2">Il n'y a pas de notes.</div>
+                <div class="mb-2  mt-2">Il n'y a pas de notes.</div>
                 {% endif %}
+                  </div>
               </div>
+
+                <div class="uk-card-text text-left text-truncate mt-4 mb-2">
+                {{ create_recette.Presentation }}
+              </div>
+              </div>
+
               <div class="card-footer uk-flex uk-flex-center uk-text-meta">
                 <div uk-grid>
-                    <div><img class="mb-1 mr-2" src="https://img.icons8.com/ios-filled/50/000000/clock.png" width="12"/>{{ create_recette.createdAt|date('Y-m-d') }}</div>
-                    <div><img class="mb-1 mr-1" src="https://img.icons8.com/ios-filled/50/000000/men-age-group-4.png" width="15"/>{{ create_recette.NbPersonnes }}</div>
+                  <div><img class="mb-1 mr-2" src="https://img.icons8.com/ios-filled/50/000000/clock.png" width="12"/>{{ create_recette.createdAt|date('d F Y') }}</div>
+                  <div><img class="mb-1 mr-1" src="https://img.icons8.com/ios-filled/50/000000/men-age-group-4.png" width="15"/>{{ create_recette.NbPersonnes }}</div>
                 </div>
               </div>
             </div>

@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Conexion{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
-<body class="uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-text-secondary" data-src="{{ asset('build/renovation.jpg') }}" uk-img>
+<body class="uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-text-secondary" uk-height-viewport="expand: true" data-src="{{ asset('build/renovation.jpg') }}" uk-img>
     <div class="card card-login shadow" style="width: 50rem; border-radius: 30px;">
         <div class="card-body mx-5 my-5">
-            <h2 class="card-title mb-5 mt-3 text-center text-uppercase">Connectez-vous</h2>
+            <h2 class="card-title mb-5 mt-3 text-center text-uppercase">Connectez-vous !</h2>
             <p class="card-text">
                 <form method="post">
                     {% if error %}
@@ -34,7 +34,7 @@
 
                         <div class="checkbox mb-3">
                             <label>
-                                <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                                <input type="checkbox" name="_remember_me">Se souvenir de moi
                             </label>
                         </div>
                     #}
@@ -43,7 +43,7 @@
                         <div class="row">
                             <div class="col">
                                 <button class="btn btn-lg btn-warning" type="submit">
-                                    Connectez-vous
+                                    Sign in
                                 </button>
                             </div>
                             <div class="col text-right mt-2">

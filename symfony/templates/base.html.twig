@@ -8,6 +8,8 @@
         {# appel du fichier css situé dans public/build #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            <!--Logo-->
+            <link rel="icon" type="image/png" href="{{ asset('build/Logo.png') }}" />
             <!-- UIkit CSS -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/css/uikit.min.css" />
             <!-- Star Rating -->
@@ -18,13 +20,13 @@
         {% block body %}{% endblock %}
         {# appel du fichier js situé dans public/build #}
         {% block javascripts %}
-                {{ encore_entry_script_tags('app') }}
-                <!-- UIkit JS -->
-                <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit-icons.min.js"></script>
-                  <!-- make sure that jquery is included -->
-                <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-                <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+            {{ encore_entry_script_tags('app') }}
+            <!-- UIkit JS -->
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit-icons.min.js"></script>
+            <!-- make sure that jquery is included -->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+            <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
         {% endblock javascripts%}
     </body>
 </html>

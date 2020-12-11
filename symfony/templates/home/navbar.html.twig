@@ -25,7 +25,9 @@
               <ul class="uk-nav uk-navbar-dropdown-nav">
                   {% if app.user %}
                   <li><a class="uk-active uk-text-uppercase uk-text-bolder uk-nav-header" href="{{ path('user_show', { 'id': app.user.id }) }}">Mon Compte&nbsp;</a></li>
+                  <li><a href="{{ path('create_recette_new') }}">Créer une nouvelle recette</a></li>
                   {% if app.user and ('ROLE_ADMIN' in app.user.roles ? app.user.roles|json_encode : '') %}
+                  <li><a href="{{ path('create_recette_new') }}">Créer une nouvelle recette</a></li>
                   <li><a href="{{ path('create_recette_index') }}">Tables des recette</a></li>
                   <li><a href="{{ path('user_index') }}">Utilisateurs</a></li>
                   {% endif %}

@@ -7,12 +7,16 @@
 {# inlude menu #}
 {% include 'home/navbar.html.twig' %}
 <div class="container uk-margin-large uk-margin-xlarge-top uk-margin-xlarge-bottom">
+  <a class="uk-button uk-button-text text-lowercase text-decoration-none uk-margin-medium-bottom" href="{{ path('categorie_nouveaute') }}">
+    <span class="uk-margin-small-right" uk-icon="arrow-left"></span><span class="text-uppercase">R</span>etour au recettes
+  </a>
+
   <div class="row uk-margin-large-bottom">
     <div class="col-sm">
       <img src="{{ asset('uploads/photos/' ~ create_recette.photoFilename) }}" class="rounded mx-auto d-block uk-width-large" alt="...">
       <div class="uk-grid-divider uk-child-width-auto@m uk-margin-medium-top uk-flex-center" uk-grid>
         <div>
-          <p class="text-center"><span class="uk-text-meta uk-margin-small-bottom">Difficulte</span><br><span class="uk-text-bold uk-text-large">{{ create_recette.Difficulte }}</span></p>
+          <p class="text-center"><span class="uk-text-meta uk-margin-small-bottom">Difficulte</span><br><span class="uk-text-bold uk-text-large">{{ create_recette.Difficulte }}</span><span class="uk-text-bottom"> / 5</span></p>
         </div>
         <div>
           <p class="text-center"><span class="uk-text-meta uk-margin-small-bottom">Note</span><br>
@@ -34,9 +38,7 @@
       {% if app.user and ('ROLE_ADMIN' in app.user.roles ? app.user.roles|json_encode : '' or app.user.username == create_recette.user.username) %}
       <div class="uk-grid-collapse uk-width-auto@m uk-flex-center uk-margin-xlarge-top" uk-grid>
         <div>
-          <a class="btn btn-light mr-1 text-decoration-none border border-secondary uk-margin-small-right" href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">
-            <img src="https://img.icons8.com/cotton/64/000000/edit--v2.png" width="25"/>modifier
-          </a>
+          <a id="ButtonDusky" class="btn text-decoration-none uk-margin-small-right uk-text-bold uk-border-pill px-4" href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">Modifier</a>
         </div>
         <div>
           {{ include('create_recette/_delete_form.html.twig') }}
@@ -93,11 +95,6 @@
     </div>
   </div>
 
-
-  <a class="btn btn-warning text-decoration-none uk-margin-medium-bottom" href="{{ path('categorie_nouveaute') }}">
-    <img class="mr-1" src="https://img.icons8.com/fluent-systems-filled/24/000000/long-arrow-left.png"/>Retour au recettes
-  </a>
-
   <!-- This is the modal with the default close button -->
   <div id="modal-close-default" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
@@ -107,12 +104,17 @@
     </div>
   </div>
 
+  <div class="dropdown-divider font-weight-light my-5"></div>
+
   <div class="row uk-margin-large-top">
     <div class="col-sm">
-      <h2 class="">Commentaires</h2>
+      <h2 class="uk-text-bolder text-uppercase">Commentaires</h2>
     </div>
     <div class="col-sm text-right">
-      <button class="btn btn-dark uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Donner votre avis</button>
+      {% if app.user %}
+        <button id="ButtonClear" class="btn uk-text-bolder uk-border-pill px-4 uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Donner votre avis</button>
+      {% else %}
+      {% endif %}
     </div>
   </div>
 
