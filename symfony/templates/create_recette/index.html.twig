@@ -35,6 +35,7 @@
                         <a class="btn btn-outline-danger border border-danger btn-sm text-decoration-none" href="{{ path('create_recette_edit', {'id': create_recette.id}) }}">Modifier</a>
                     {% endif %}
 
+
                 </td>
             </tr>
                     {% else %}
@@ -46,8 +47,8 @@
         </tbody>
     </table>
 
-    <a class="btn btn-warning text-decoration-none" href="{{ path('create_recette_new') }}">
-       <img class="mr-1" src="https://img.icons8.com/fluent-systems-filled/24/000000/plus.png"/>Créer une nouvelle recette
+    <a id="ButtonDusky" class="btn uk-border-pill px-4 uk-text-bold text-decoration-none" href="{{ path('create_recette_new') }}">
+       Créer une nouvelle recette
     </a>
 
     </div>

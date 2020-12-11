@@ -8,11 +8,11 @@ body {
 }
 
 #Folow {
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        background-color: rgba(131, 131, 131, 0.26);
-        width: 500px;
-        height: 60px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(131, 131, 131, 0.26);
+    width: 500px;
+    height: 60px;
 
 }
 
@@ -40,12 +40,12 @@ body {
     outline: 0;
     background: none;
     width: 600px;
-    caret-color:transparent;
+    caret-color: transparent;
     line-height: 40px;
 }
 
 .Cyril {
-     text-shadow:black 3px 0 3px;
+    text-shadow: black 3px 0 3px;
 }
 
 
@@ -120,18 +120,7 @@ footer a {
     }
 }
 
-.registration {
-    background: #181015 url('../../assets/images/renovation.jpg') no-repeat;
-    background-size: cover;
-    min-width: 100%;
-    min-height: 100%;
-    margin-top: 0%;
-}
-
-
-
 .card-register {
-
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -140,7 +129,6 @@ footer a {
 }
 
 .card-login {
-
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -149,4 +137,19 @@ footer a {
     transform: translateY(-50%);
     /* tiré de la moitié de sa propre hauteur */
 
+}
+
+#ButtonClear {
+    background-color: white;
+    border-color: #d29370;
+    color: #d29370;
+    border-width: medium;
+
+}
+
+#ButtonDusky {
+    background-color: #d29370;
+    color: white;
+    text-align: center;
+    border-width: medium;
 }

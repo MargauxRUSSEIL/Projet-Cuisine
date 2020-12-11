@@ -1,11 +1,13 @@
 <footer class="p-5 text-white uk-position-bottom uk-position-relative uk-margin-xlarge-top uk-background-cover uk-background-top-left" style="background-image: url({{ asset('build/renovation.jpg') }})">
   <div class="container uk-margin-medium-top">
-  <div class="row">
+  <div class="row uk-margin-medium-bottom">
     <div class="col-sm">
-      <img src="{{ asset('build/Logo.png') }}" alt="" width="150" height="150">
+      <a class="uk-navbar-item uk-logo" href="{{ path('index') }}">
+        <img src="{{ asset('build/Logo.png') }}" alt="" width="150" height="150">
+      </a>
     </div>
     <div class="col-sm">
-      <p class="h5 uk-margin-bottom uk-margin-large-right text-center">Recette</p>
+      <p class="h5 uk-margin-bottom uk-margin-large-right text-center">Recettes</p>
         <div class="row text-left">
           <div class="col">
             <p  class="uk-margin-small"><a class="text-decoration-none uk-link-reset" href="{{ path('categorie_entrees') }}"><small>Entrées</small></a></p>
@@ -20,7 +22,7 @@
     </div>
     <div class="col-sm">
       <p class="h5 uk-margin-bottom">Contactez-nous</p>
-      <p class="font-weight-light uk-margin-small"><small>Mail : test@gmail.com</small></p>
+      <p class="font-weight-light uk-margin-small"><small>Mail : recettes.to.cook@gmail.com</small></p>
       <p class="font-weight-light uk-margin-small"><small> Tél : 07.86.97.63.56</small></p>
     </div>
     <div class="col-sm">
@@ -36,6 +38,9 @@
       </a>
     </div>
   </div>
-  <p class="m-1 text-center uk-position-bottom text-white uk-text-small">Copyright &copy; Cook 2020</p>
+  <div class="uk-position-bottom">
+      <div class="m-1 mb-2 text-center text-white uk-text-small">Copyright &copy; Cook 2020</div>
+      <div class="text-center text-white uk-text-small bg-dark " style="text-shadow: none;"><small>Site crée par les développeurs : Allan DUCREUX, Thibault PELINSKI, Estéban POTTIER, Margaux RUSSEIL et Adam SELLIN</small></div>
+  </div>
 </div>
 </footer>
